@@ -1,4 +1,7 @@
-from django.shortcuts import render
+from django.http import JsonResponse
+from .service.find_product_by_id import FindProductById
 
-def index():
-    pass
+
+def index(request):
+    product = FindProductById(1)
+    return JsonResponse(product())
