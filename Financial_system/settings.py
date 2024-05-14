@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'finsite.apps.FinsiteConfig'
+    'finsite.apps.FinsiteConfig',
+    'django_seed',
 ]
 
 MIDDLEWARE = [

@@ -30,6 +30,19 @@
   python3 manage.py migrate
   python3 manage.py runserver
 ```
+## Посевка фейковых данных
+
+Установка
+
+```bash
+  pip install django-seed
+```
+
+Для посевки фейковых штуковин используйте seed
+
+```bash
+  python3 manage.py seed finsite --number=<Количество>
+```
 ## API запросы
 
 #### Пока их нет, но будет выглядеть вот так
