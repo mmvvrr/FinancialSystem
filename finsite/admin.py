@@ -1,10 +1,10 @@
 from django.contrib import admin
 from .models import *
 
-admin.site.register(Categories)
-admin.site.register(Products)
-admin.site.register(Keeping)
-admin.site.register(PriceManagments)
-admin.site.register(Providers)
-admin.site.register(Storages)
-admin.site.register(Supplies)
+admin.site.register(Category)
+admin.site.register(Product)
+admin.site.register(Keep)
+admin.site.register(PriceManagement)
+admin.site.register(Provider)
+admin.site.register(Storage)
+admin.site.register(Supplier)

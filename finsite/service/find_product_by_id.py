@@ -1,4 +1,4 @@
-from ..models import Products
+from ..models import Product
 
 
 class FindProductById:
@@ -11,4 +11,4 @@ class FindProductById:
         return {"name": product.name, "description": product.description}
 
     def _find_product(self):
-        return Products.objects.get(id=self.product_id)
+        return Product.objects.get(id=self.product_id)
