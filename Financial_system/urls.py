@@ -18,9 +18,13 @@ from django.contrib import admin
 from rest_framework import routers
 from django.urls import path, include
 from finsite import apiview
+from finsite import views
 
 router = routers.DefaultRouter()
 router.register(r'products', apiview.ProductViewSet)
+router.register(r'categories', apiview.CategoryViewSet)
+
+# router.register(r'products', views.ProductList.as_view())
 
 urlpatterns = [
     path('admin/', admin.site.urls),
