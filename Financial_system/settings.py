@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'finsite.apps.FinsiteConfig',
     'django_seed',
     'rest_framework',
+    'django_filters',
 ]
 
 REST_FRAMEWORK = {
