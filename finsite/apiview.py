@@ -1,6 +1,6 @@
 from rest_framework import permissions, viewsets
-from .serializers import *
-from .serializer.index import *
+from .serializer import *
+from .models import *
 import django_filters.rest_framework
 
 class ProductViewSet(viewsets.ModelViewSet):
@@ -15,3 +15,4 @@ class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
     # permission_classes = [permissions.IsAuthenticated]
+

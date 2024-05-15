@@ -26,7 +26,9 @@
 Представим, что все либы установлены, то:
 
 ```bash
+  pip install django-filter
   pip install djangorestframework
+  
   python3 manage.py makemigrations
   python3 manage.py migrate
   python3 manage.py runserver
