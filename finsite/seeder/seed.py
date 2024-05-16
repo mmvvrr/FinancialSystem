@@ -7,3 +7,5 @@ def seed_db():
     customer_seeder()
 
     employee_seeder()
+
+    category_seeder()
