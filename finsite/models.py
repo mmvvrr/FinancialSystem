@@ -53,7 +53,7 @@ class Review(models.Model):
 
 class Provider(models.Model):
     name = models.CharField(max_length=50, )
-    phone = models.CharField(max_length=13, )
+    phone = models.CharField(max_length=50, )
     email = models.EmailField(max_length=50, )
 
 
