@@ -11,3 +11,5 @@ def seed_db():
     category_seeder()
 
     product_seeder()
+
+    storage_seeder()
