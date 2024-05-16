@@ -4,6 +4,7 @@ import numpy as np
 from faker import Faker
 
 
+
 def seed_db():
 
     fake = Faker(['ru_RU'])
