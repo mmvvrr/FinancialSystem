@@ -10,4 +10,4 @@ def index(request):
 def seed(request):
     seed_db()
 
-    pass
+    return JsonResponse({'status': 'success'})

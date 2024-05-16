@@ -28,6 +28,9 @@
 ```bash
   pip install django-filter
   pip install djangorestframework
+  pip install django-extensions
+  pip install numpy
+  pip install Faker
   
   python3 manage.py makemigrations
   python3 manage.py migrate
