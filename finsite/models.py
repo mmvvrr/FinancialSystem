@@ -13,6 +13,7 @@ class Product(models.Model):
     name = models.CharField(max_length=255, )
     description = models.TextField(max_length=1000, )
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, related_name='products')
+    storage = models.ManyToManyField('Storage', through='Store', related_name='products')
 
 
 class ProductPriceHistory(models.Model):
@@ -32,13 +33,13 @@ class Storage(models.Model):
     street = models.CharField(max_length=255, default='')
     build = models.CharField(max_length=255, default='')
     price = models.FloatField(default=6250, )
+    product = models.ManyToManyField(Product, through='Store', related_name='storages')
 
 
 class Store(models.Model):
     storage = models.ForeignKey(Storage, on_delete=models.CASCADE, null=True, related_name='stores')
     product = models.ForeignKey(Product, on_delete=models.CASCADE, null=True, related_name='stores')
     quantity = models.PositiveIntegerField(default=0, null=False)
-
 
 
 class Customer(models.Model):
