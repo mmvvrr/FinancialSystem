@@ -1,5 +1,5 @@
 from rest_framework import permissions, viewsets
-from .serializer import *
+from .serializer import ProductSerializer, CategorySerializer
 from .models import *
 import django_filters.rest_framework
 
