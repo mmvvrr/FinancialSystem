@@ -1,54 +1,94 @@
 from django.db import models
+from django.core.validators import MaxValueValidator, MinValueValidator
 from datetime import datetime
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=50, verbose_name=u"Название категории")
-    description = models.TextField(max_length=1000, verbose_name=u"Описание категории")
-
-
-class Provider(models.Model):
-    name = models.CharField(max_length=50, verbose_name=u"Название поставщика")
-    phone = models.CharField(max_length=13, verbose_name=u"Номер поставщика")
-    email = models.EmailField(max_length=50, verbose_name=u"Электронная почта товара")
-
-
-class Storage(models.Model):
-    name = models.CharField(max_length=50, verbose_name=u"Название склада")
-    country = models.CharField(max_length=50, verbose_name=u"Страна")
-    district = models.CharField(max_length=50, verbose_name=u"Округ")
-    region = models.CharField(max_length=50, verbose_name=u"Область")
-    city = models.CharField(max_length=25, verbose_name=u"Город")
-    street = models.CharField(max_length=50, verbose_name=u"Улица")
-    building = models.CharField(max_length=50, verbose_name=u"Дом")
+    name = models.CharField(max_length=50, )
+    description = models.TextField(max_length=1000, )
+    parent = models.ForeignKey('self', on_delete=models.SET_NULL, null=True,  related_name='childrens')
 
 
 class Product(models.Model):
-    name = models.CharField(max_length=50, verbose_name=u"Название товара")
-    description = models.TextField(max_length=1000, verbose_name=u"Описание товара")
-    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, verbose_name=u"Категория")
+    name = models.CharField(max_length=50, )
+    description = models.TextField(max_length=1000, )
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True,  related_name='products')
 
 
-class PriceManagement(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, null=True, verbose_name=u"Номер товара")
-    date_change = models.DateField(default=datetime.now(), null=False, verbose_name=u"Дата изменения цены")
-    price = models.FloatField(null=False, default=0.0, verbose_name=u"Цена")
+class ProductPriceHistory(models.Model):
+    name = models.CharField(max_length=50, )
+    price = models.FloatField(default=0, )
+    created_at = models.DateTimeField(auto_now_add=True)
 
 
-class Supplier(models.Model):
-    provider = models.ForeignKey(Provider, on_delete=models.SET_NULL, null=True, verbose_name=u"Номер поставщика")
-    date_change = models.DateField(default=datetime.now(), null=False, verbose_name=u"Дата поставки")
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, null=True, verbose_name=u"Номер товара")
-    amount = models.IntegerField(null=False, default=0, verbose_name=u"Количество")
+class Storage(models.Model):
+    name = models.CharField(max_length=50, default='')
+    postal_codes = models.CharField(max_length=50, default='')
+    status = models.BooleanField(default=True)
+    country = models.CharField(max_length=50, default='')
+    district = models.CharField(max_length=50, default='')
+    region = models.CharField(max_length=50, default='')
+    locality = models.CharField(max_length=50, default='')
+    street = models.CharField(max_length=50, default='')
+    build = models.CharField(max_length=50, default='')
+    price = models.FloatField(default=6250, )
 
 
-class Keep(models.Model):
-    storage = models.ForeignKey(Storage, on_delete=models.CASCADE, null=True, verbose_name=u"Номер склада")
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, null=True, verbose_name=u"Номер товара")
-    amount = models.IntegerField(null=False, default=0, verbose_name=u"Количество товара")
+class Customer(models.Model):
+    name = models.CharField(max_length=50, )
+    surname = models.CharField(max_length=50, )
+    patronymic = models.CharField(max_length=50, )
+    email = models.CharField(max_length=50, )
+    phone = models.CharField(max_length=50, )
+    date_birth = models.DateField()
+    gender = models.BooleanField()
 
-# class Sales(models.Model):
-#     id_product = models.ForeignKey(Products, on_delete=models.CASCADE, null=True)
-#     id_price = models.ForeignKey(PriceManagments, on_delete=models.CASCADE, null=True)
-#     amount = models.IntegerField(null=False, default=0)
-#     date_transacrion = models.DateField(default=datetime.now(), null=False)
+
+class Review(models.Model):
+    customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, null=True, related_name='reviews')
+    product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True, related_name='reviews')
+    rating = models.PositiveIntegerField(default=0, validators=[MinValueValidator(1), MaxValueValidator(5)], )
+    comment = models.TextField(max_length=1500, )
+
+
+class Provider(models.Model):
+    name = models.CharField(max_length=50, )
+    phone = models.CharField(max_length=13, )
+    email = models.EmailField(max_length=50, )
+
+
+class Supply(models.Model):
+    created_at = models.DateTimeField(auto_now_add=True)
+
+
+class SupplyLine(models.Model):
+    provider = models.ForeignKey(Provider, on_delete=models.CASCADE, null=True,  related_name='supply_lines')
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, null=True,  related_name='supply_lines')
+    supply = models.ForeignKey(Supply, on_delete=models.CASCADE, null=True,  related_name='supply_lines')
+    quantity = models.PositiveIntegerField(default=1, )
+
+
+class Order(models.Model):
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    status = models.PositiveIntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(5)], )
+
+
+class Employee(models.Model):
+    name = models.CharField(max_length=50, )
+    surname = models.CharField(max_length=50, )
+    patronymic = models.CharField(max_length=50, )
+    email = models.CharField(max_length=50, )
+    phone = models.CharField(max_length=50, )
+    date_birth = models.DateField()
+    gender = models.BooleanField()
+    salary = models.FloatField(default=12_500, )
+
+
+class OrderLine(models.Model):
+    order = models.ForeignKey(Order, on_delete=models.CASCADE, null=True,  related_name='order_lines')
+    product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True,  related_name='order_lines')
+    price = models.ForeignKey(ProductPriceHistory, on_delete=models.SET_NULL, null=True,  related_name='order_lines')
+    employee = models.ForeignKey(Employee, on_delete=models.SET_NULL, null=True,  related_name='order_lines')
+    created_at = models.DateTimeField(auto_now_add=True)
+    quantity = models.PositiveIntegerField(default=1, )
