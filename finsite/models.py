@@ -6,17 +6,17 @@ from datetime import datetime
 class Category(models.Model):
     name = models.CharField(max_length=255, )
     description = models.TextField(max_length=1000, )
-    parent = models.ForeignKey('self', on_delete=models.SET_NULL, null=True,  related_name='childrens')
+    parent = models.ForeignKey('self', on_delete=models.SET_NULL, null=True, related_name='childrens')
 
 
 class Product(models.Model):
     name = models.CharField(max_length=255, )
     description = models.TextField(max_length=1000, )
-    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True,  related_name='products')
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, related_name='products')
 
 
 class ProductPriceHistory(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, null=True,  related_name='prices')
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, null=True, related_name='prices')
     price = models.FloatField(default=0, )
     created_at = models.DateTimeField(auto_now_add=True)
 
@@ -32,6 +32,13 @@ class Storage(models.Model):
     street = models.CharField(max_length=255, default='')
     build = models.CharField(max_length=255, default='')
     price = models.FloatField(default=6250, )
+
+
+class Store(models.Model):
+    storage = models.ForeignKey(Storage, on_delete=models.CASCADE, null=True, related_name='stores')
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, null=True, related_name='stores')
+    quantity = models.PositiveIntegerField(default=0, null=False)
+
 
 
 class Customer(models.Model):
@@ -62,9 +69,9 @@ class Supply(models.Model):
 
 
 class SupplyLine(models.Model):
-    provider = models.ForeignKey(Provider, on_delete=models.CASCADE, null=True,  related_name='supply_lines')
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, null=True,  related_name='supply_lines')
-    supply = models.ForeignKey(Supply, on_delete=models.CASCADE, null=True,  related_name='supply_lines')
+    provider = models.ForeignKey(Provider, on_delete=models.CASCADE, null=True, related_name='supply_lines')
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, null=True, related_name='supply_lines')
+    supply = models.ForeignKey(Supply, on_delete=models.CASCADE, null=True, related_name='supply_lines')
     quantity = models.PositiveIntegerField(default=1, )
 
 
@@ -86,9 +93,9 @@ class Employee(models.Model):
 
 
 class OrderLine(models.Model):
-    order = models.ForeignKey(Order, on_delete=models.CASCADE, null=True,  related_name='order_lines')
-    product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True,  related_name='order_lines')
-    price = models.ForeignKey(ProductPriceHistory, on_delete=models.SET_NULL, null=True,  related_name='order_lines')
-    employee = models.ForeignKey(Employee, on_delete=models.SET_NULL, null=True,  related_name='order_lines')
+    order = models.ForeignKey(Order, on_delete=models.CASCADE, null=True, related_name='order_lines')
+    product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True, related_name='order_lines')
+    price = models.ForeignKey(ProductPriceHistory, on_delete=models.SET_NULL, null=True, related_name='order_lines')
+    employee = models.ForeignKey(Employee, on_delete=models.SET_NULL, null=True, related_name='order_lines')
     created_at = models.DateTimeField(auto_now_add=True)
     quantity = models.PositiveIntegerField(default=1, )
