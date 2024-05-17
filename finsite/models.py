@@ -80,8 +80,9 @@ class SupplyLine(models.Model):
 
 class Order(models.Model):
     created_at = models.DateTimeField()
-    updated_at = models.DateTimeField(auto_now=True)
+    updated_at = models.DateTimeField()
     status = models.PositiveIntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(5)], )
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE, null=True, related_name='orders')
 
 
 class Employee(models.Model):
