@@ -18,7 +18,7 @@ def supply_seeder():
                 supply.save()
                 for supply_data in range(np.random.randint(3, 10)):
                     supply_line.append(_set_supplyline(np.random.choice(providers), np.random.choice(products),
-                                                       supply, np.random.randint(20, 100)))
+                                                       supply, np.random.randint(100, 500)))
         SupplyLine.objects.bulk_create(supply_line)
 
 
