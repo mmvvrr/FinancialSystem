@@ -74,6 +74,7 @@ class SupplyLine(models.Model):
     provider = models.ForeignKey(Provider, on_delete=models.CASCADE, null=True, related_name='supply_lines')
     product = models.ForeignKey(Product, on_delete=models.CASCADE, null=True, related_name='supply_lines')
     supply = models.ForeignKey(Supply, on_delete=models.CASCADE, null=True, related_name='supply_lines')
+    unit_product_price = models.FloatField(default=0)
     quantity = models.PositiveIntegerField(default=1, )
 
 
