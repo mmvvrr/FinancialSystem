@@ -67,6 +67,7 @@ class Provider(models.Model):
 
 class Supply(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
+    storage = models.ForeignKey(Storage, on_delete=models.SET_NULL, null=True, related_name='supplies')
 
 
 class SupplyLine(models.Model):
@@ -100,3 +101,4 @@ class OrderLine(models.Model):
     employee = models.ForeignKey(Employee, on_delete=models.SET_NULL, null=True, related_name='order_lines')
     created_at = models.DateTimeField(auto_now_add=True)
     quantity = models.PositiveIntegerField(default=1, )
+    store = models.ForeignKey(Store, on_delete=models.SET_NULL, null=True, related_name='order_lines')
