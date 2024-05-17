@@ -19,7 +19,7 @@ class Product(models.Model):
 class ProductPriceHistory(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, null=True, related_name='prices')
     price = models.FloatField(default=0, )
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField()
 
 
 class Storage(models.Model):
@@ -66,7 +66,7 @@ class Provider(models.Model):
 
 
 class Supply(models.Model):
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField()
     storage = models.ForeignKey(Storage, on_delete=models.SET_NULL, null=True, related_name='supplies')
 
 
@@ -78,7 +78,7 @@ class SupplyLine(models.Model):
 
 
 class Order(models.Model):
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField()
     updated_at = models.DateTimeField(auto_now=True)
     status = models.PositiveIntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(5)], )
 
@@ -99,6 +99,6 @@ class OrderLine(models.Model):
     product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True, related_name='order_lines')
     price = models.ForeignKey(ProductPriceHistory, on_delete=models.SET_NULL, null=True, related_name='order_lines')
     employee = models.ForeignKey(Employee, on_delete=models.SET_NULL, null=True, related_name='order_lines')
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField()
     quantity = models.PositiveIntegerField(default=1, )
     store = models.ForeignKey(Store, on_delete=models.SET_NULL, null=True, related_name='order_lines')

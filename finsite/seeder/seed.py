@@ -17,3 +17,5 @@ def seed_db():
     supply_seeder()
 
     store_seeder()
+
+    price_seeder()
