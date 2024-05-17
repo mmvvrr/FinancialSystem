@@ -15,3 +15,5 @@ def seed_db():
     storage_seeder()
 
     store_seeder()
+
+    supply_seeder()
