@@ -12,12 +12,12 @@ def seed_db():
 
     product_seeder()
 
+    price_seeder()
+
     storage_seeder()
 
     supply_seeder()
 
     store_seeder()
-
-    price_seeder()
 
     order_seeder()

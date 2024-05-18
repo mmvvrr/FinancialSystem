@@ -2,8 +2,6 @@ from finsite.models import Product, Customer, Order, OrderLine, Employee, Store,
 import numpy as np
 from datetime import datetime, timedelta
 
-orders = []
-
 
 def order_seeder():
     if Order.objects.count() == 0:
@@ -19,7 +17,6 @@ def order_seeder():
                     customer_order([0.3, 0.7], 2, 20, date, customer)
                 if custumer_type == 'opt':
                     customer_order([0.05, 0.95], 50, 200, date, customer)
-        OrderLine.objects.bulk_create(orders)
 
 def _products():
     return Product.objects.all()
@@ -62,6 +59,7 @@ def _set_order_line(order, product, employee, created_at, quantity, store):
 def customer_order(p, min, max, date, customer):
     if np.random.choice([True, False], p=p):
         order = _set_order(date, customer)
+        order.save()
         ord_line_count = np.random.randint(min, max)
         product_list = list(set(np.random.choice(_products(), size=ord_line_count)))
         for product in product_list:
@@ -70,5 +68,5 @@ def customer_order(p, min, max, date, customer):
             else:
                 quantity = np.random.randint(1, ord_line_count)
                 ord_line_count -= quantity
-                orders.append(_set_order_line(order, product, np.random.choice(_employee()), date, quantity,
-                                np.random.choice(_store())))
+                _set_order_line(order, product, np.random.choice(_employee()), date, quantity,
+                                np.random.choice(_store())).save()
