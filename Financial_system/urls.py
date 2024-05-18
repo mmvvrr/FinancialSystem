@@ -25,6 +25,7 @@ router.register(r'products', apiview.ProductViewSet)
 router.register(r'categories', apiview.CategoryViewSet)
 router.register(r'customers', CustomerViewSet)
 router.register(r'orders', OrderViewSet)
+router.register(r'order_lines', OrderLineViewSet)
 
 
 urlpatterns = [
