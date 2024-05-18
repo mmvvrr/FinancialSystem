@@ -17,15 +17,15 @@ Including another URLconf
 from django.contrib import admin
 from rest_framework import routers
 from django.urls import path, include
-from finsite import apiview
 from finsite.view import *
 
 router = routers.DefaultRouter()
-router.register(r'products', apiview.ProductViewSet)
-router.register(r'categories', apiview.CategoryViewSet)
+router.register(r'products', ProductViewSet)
+router.register(r'categories', CategoryViewSet)
 router.register(r'customers', CustomerViewSet)
 router.register(r'orders', OrderViewSet)
 router.register(r'order_lines', OrderLineViewSet)
+router.register(r'product_price_histories', ProductPriceHistoryLineViewSet)
 
 
 urlpatterns = [

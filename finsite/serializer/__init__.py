@@ -3,6 +3,7 @@ from .products import *
 from .customer import *
 from .order import *
 from .order_line import *
+from .product_price_history import *
 
 
 
