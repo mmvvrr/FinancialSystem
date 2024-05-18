@@ -1,6 +1,7 @@
 from .category import *
 from .products import *
 from .customer import *
+from .order import *
 
 
 
