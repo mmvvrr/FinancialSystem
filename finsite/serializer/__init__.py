@@ -1,5 +1,6 @@
 from .category import *
 from .products import *
+from .customer import *
 
 
 

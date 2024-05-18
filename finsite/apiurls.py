@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import *
+from .view import *
 
 urlpatterns = [
     path('products', index, name='Products Api')

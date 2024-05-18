@@ -12,9 +12,9 @@ def order_seeder():
             custumer_type = np.random.choice(['fish', 'kit', 'opt'], p=[0.9, 0.05, 0.05])
             for date in dateList:
                 if custumer_type == 'fish':
-                    customer_order([0.15, 0.85], 2, 6, date, customer)
+                    customer_order([0.1, 0.9], 2, 6, date, customer)
                 if custumer_type == 'kit':
-                    customer_order([0.3, 0.7], 2, 20, date, customer)
+                    customer_order([0.2, 0.8], 2, 20, date, customer)
                 if custumer_type == 'opt':
                     customer_order([0.05, 0.95], 50, 200, date, customer)
 
