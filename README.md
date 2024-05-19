@@ -42,6 +42,7 @@
     запускать с директории financial_system_app
 ```bash
   node -v
+  npm install
   npm run dev
 ```
 
