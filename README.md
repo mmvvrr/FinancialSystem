@@ -36,6 +36,15 @@
   python3 manage.py migrate
   python3 manage.py runserver
 ```
+
+
+## Запуск Next
+    запускать с директории financial_system_app
+```bash
+  node -v
+  npm run dev
+```
+
 ## Посевка фейковых данных
 
 Установка
