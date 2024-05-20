@@ -16,5 +16,5 @@ def product_prices_by_category(category_id: int):
         Product.objects
         .filter(category_id=category_id)
         .annotate(price=ArraySubquery(subquery))
-        .values("id", "name", "price")
+        .values("name", "price")
     )
