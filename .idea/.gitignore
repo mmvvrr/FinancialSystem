@@ -6,3 +6,9 @@
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml
+/dataSources.xml
+/FinancialSystem.iml
+/misc.xml
+/modules.xml
+/inspectionProfiles/profiles_settings.xml
+/vcs.xml

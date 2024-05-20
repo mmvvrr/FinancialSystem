@@ -9,7 +9,7 @@ fake = Faker(['ru_RU'])
 def customer_seeder():
     if Customer.objects.count() == 0:
         customers = []
-        for _ in range(1236):
+        for _ in range(8232):
             customers.append(_set_provider())
         Customer.objects.bulk_create(customers)
 
