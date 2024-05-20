@@ -1,8 +1,13 @@
-from rest_framework import permissions, viewsets
+from rest_framework import permissions, viewsets, status
+from rest_framework.decorators import action
+from rest_framework.response import Response
+
 from finsite.serializer import ProductSerializer
 from finsite.models import *
 import django_filters.rest_framework
 from django.db.models import Prefetch
+
+from finsite.service.product_prices_by_category import product_prices_by_category
 
 
 class ProductViewSet(viewsets.ModelViewSet):
@@ -17,3 +22,10 @@ class ProductViewSet(viewsets.ModelViewSet):
     #permission_classes = [permissions.IsAuthenticated]
     filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
     filterset_fields = ['id', 'name']
+
+    @action(detail=False, methods=['get'], url_path='analytics/product_prices_by_category')
+    def product_prices_by_category(self, request, *args, **kwargs):
+        return Response(
+            {"args": request.GET.get('category'), "products": product_prices_by_category(request.GET.get('category'))},
+            status=status.HTTP_200_OK
+        )
