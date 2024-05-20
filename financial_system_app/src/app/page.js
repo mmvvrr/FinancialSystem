@@ -11,8 +11,9 @@ export default function Home() {
   const [dataGraph, setDataGraph] = useState([]);
 
   const getData = async function () {
-    const res = await axios.get(`http://localhost:8000/api/products/analytics/product_prices_by_category/?category=8`);
-    setProducts(res.data.products);
+    const res = await fetch(`http://localhost:8000/api/products/analytics/product_prices_by_category/?category=8`);
+    const data = await res.json();
+    await setProducts(data.products);
     const formateDatas = products.map(product => {
       return [product.name, product.price]
     });
