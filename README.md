@@ -31,6 +31,7 @@
   pip install django-extensions
   pip install numpy
   pip install Faker
+  pip install django-cors-headers
   
   python3 manage.py makemigrations
   python3 manage.py migrate
