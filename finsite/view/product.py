@@ -1,4 +1,4 @@
-from rest_framework import permissions, viewsets, status
+from rest_framework import viewsets, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
 
@@ -7,7 +7,7 @@ from finsite.models import *
 import django_filters.rest_framework
 from django.db.models import Prefetch
 
-from finsite.service.product_prices_by_category import product_prices_by_category
+from finsite.service.analytics.product_prices_by_category import product_prices_by_category
 
 
 class ProductViewSet(viewsets.ModelViewSet):
