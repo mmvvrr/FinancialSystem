@@ -9,6 +9,7 @@ from django.db.models import Prefetch
 
 from finsite.service.analytics.product_prices_by_category import product_prices_by_category
 from finsite.service.analytics.product_price_history import product_price_history
+from finsite.service.analytics.product_orders import product_orders
 
 
 class ProductViewSet(viewsets.ModelViewSet):
@@ -28,6 +29,14 @@ class ProductViewSet(viewsets.ModelViewSet):
     def product_prices_by_category(self, request, pk=None, *args, **kwargs):
         return Response(
             {"products": product_prices_by_category(request.GET.get('category'))},
+            status=status.HTTP_200_OK
+        )
+
+    @action(detail=False, methods=['get'], url_path='analytics/product_orders')
+    def product_orders(self, request, pk=None, *args, **kwargs):
+        return Response(
+            {"products": product_orders(request.GET.get('product'), to_date=request.GET.get('to_date'),
+            from_date=request.GET.get('from_date'))},
             status=status.HTTP_200_OK
         )
 
