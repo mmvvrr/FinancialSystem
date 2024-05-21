@@ -1,6 +1,6 @@
 "use client"
 import { Chart } from "react-google-charts";
-import {fetchGetProductPriceByCategoryQuery} from "@/app/hooks/api/analytics/useGetProductPriceByCategory";
+import {fetchGetProductPriceByCategoryQuery} from "@/hooks/api/analytics/useGetProductPriceByCategory";
 import {ProgressSpinner} from "primereact/progressspinner";
 import { Chip } from 'primereact/chip';
 
@@ -25,8 +25,8 @@ const AnalyticChartProductPriceByCategory = function(props) {
       <Chart
         chartType="PieChart"
         data={graphData}
-        width="100%"
-        height="400px"
+        width="1280px"
+        height="720px"
         legendToggle
       />
     </div>
