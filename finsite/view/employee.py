@@ -35,6 +35,6 @@ class EmployeeViewSet(viewsets.ModelViewSet):
     @action(detail=False, methods=['get'], url_path='analytics/employee_all_sales')
     def employee_revenue(self, request, pk=None, *args, **kwargs):
         return Response(
-            {"employee_all_sales": employee_all_sales(request.GET.get('employee'))},
+            {"employee_all_sales": employee_all_sales()},
             status=status.HTTP_200_OK
         )

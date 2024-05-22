@@ -7,20 +7,23 @@ from django.db.models.functions import JSONObject, Round
 from finsite.models import ProductPriceHistory, Product, OrderLine, Order, Employee
 
 
-def employee_all_sales(**kwargs):
+def order_by_year(**kwargs):
     to_date = kwargs.get('to_date')
     from_date = kwargs.get('from_date')
-    subquery = Employee.objects.filter(id=OuterRef("pk")).annotate(
-        total=Func(F('order_lines__price__price')*F('order_lines__quantity'), function='SUM')
+    subquery = Order.objects.filter(id=OuterRef("pk")).annotate(
+        data=JSONObject(product=F("order_lines__product__name"),
+                        base_price=F("order_lines__price__price"),
+                        full_price=(F("order_lines__price__price") * F("order_lines__quantity")),
+                        quantity=F("order_lines__quantity"))
     )
 
     if to_date: subquery = subquery.filter(created_at__gte=datetime.fromisoformat(to_date))
     if from_date: subquery = subquery.filter(created_at__lte=datetime.fromisoformat(from_date))
 
-    subquery = subquery.values("total")
+    subquery = subquery.values("data")
     return (
-        Employee
+        Order
         .objects
         .annotate(sales=ArraySubquery(subquery))
-        .values("surname", "name", "patronymic", "email", "sales")
+        .values("id", "created_at", "sales")
     )
