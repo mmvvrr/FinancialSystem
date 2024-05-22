@@ -38,7 +38,7 @@ class ProductViewSet(viewsets.ModelViewSet):
     def product_orders(self, request, pk=None, *args, **kwargs):
         return Response(
             {"products": product_orders(request.GET.get('product'), to_date=request.GET.get('to_date'),
-            from_date=request.GET.get('from_date'))},
+                                        from_date=request.GET.get('from_date'))},
             status=status.HTTP_200_OK
         )
 
@@ -54,21 +54,19 @@ class ProductViewSet(viewsets.ModelViewSet):
             status=status.HTTP_200_OK
         )
 
-
-
     @action(detail=False, methods=['get'], url_path='analytics/products_by_year')
     def products_by_year(self, request, pk=None, *args, **kwargs):
         return Response(
-            {"products_by_year": products_by_year(request.GET.get('year', '2023'), category=request.GET.get('category', '0'), )},
+            {"products_by_year": products_by_year(request.GET.get('year', '2023'),
+                                                  category=request.GET.get('category', '0'), )},
             status=status.HTTP_200_OK
         )
-
-
 
     @action(detail=False, methods=['get'], url_path='analytics/products_top')
     def products_top(self, request, pk=None, *args, **kwargs):
         print(request.query_params.getlist('years', ''))
         return Response(
-            {"products_top": products_top(count=request.GET.get('count', 10), category=request.query_params.getlist('category', '0'))},
+            {"products_top": products_top(count=request.GET.get('count', 10),
+                                          category=request.query_params.getlist('category[]', '0'))},
             status=status.HTTP_200_OK
         )

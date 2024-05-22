@@ -7,6 +7,14 @@ import {fetchProductTopQuery} from "@/hooks/api/analytics/product/fetchProductTo
 
 const AnalyticProductTopTable = function () {
 
+  const formateNumberTotalQuantityToLocaleRu = (product) => {
+    return product.total_quantity.toLocaleString('ru-RU')
+  }
+
+  const formateNumberTotalSumToLocaleRu = function (product) {
+    return product.total_sum.toLocaleString('ru-RU')
+  }
+
   const {data, isPending, isError, error} = fetchProductTopQuery({count: 5});
 
 
@@ -18,8 +26,8 @@ const AnalyticProductTopTable = function () {
     <Card title="Топ 5 продукции">
       <DataTable value={data} >
         <Column field="product__name" header="Название"></Column>
-        <Column field="total_quantity" header="Кол-во"></Column>
-        <Column field="total_sum" header="Сумма денег"></Column>
+        <Column field='total_quantity' header="Кол-во" body={formateNumberTotalQuantityToLocaleRu}></Column>
+        <Column field='total_sum' header="Сумма денег" body={formateNumberTotalSumToLocaleRu}></Column>
       </DataTable>
     </Card>
   )
