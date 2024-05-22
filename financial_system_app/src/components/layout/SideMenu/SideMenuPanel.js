@@ -56,7 +56,16 @@ const SideMenuPanel = function () {
   ];
 
   return (
-    <PanelMenu model={items} className="w-full py-2"/>
+    <PanelMenu model={items} className="w-full py-2"
+      pt={
+        {
+          headercontent: {
+            className: 'border-none'
+          },
+          menuContent: {className: 'border-none'}
+        }
+      }
+    />
   )
 }
 
