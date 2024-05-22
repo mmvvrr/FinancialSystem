@@ -17,9 +17,9 @@ class SupplyViewSet(viewsets.ModelViewSet):
     # filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
     # filterset_fields = ['name', 'surname', 'patronymic', 'email', 'date_birth', 'gender']
 
-    @action(detail=False, methods=['get'], url_path='analytics/order_count_by_year')
-    def order_count_by_year(self, request, pk=None, *args, **kwargs):
+    @action(detail=False, methods=['get'], url_path='analytics/supply_count_by_year')
+    def supply_count_by_year(self, request, pk=None, *args, **kwargs):
         return Response(
-            {"order_count": supply_count_by_year(request.GET.get('year', '2023'))},
+            {"supply_count": supply_count_by_year(request.GET.get('year', '2023'))},
             status=status.HTTP_200_OK
         )

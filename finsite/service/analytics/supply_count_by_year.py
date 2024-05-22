@@ -10,7 +10,7 @@ def supply_count_by_year(year):
     monthly_supplies = (
         Supply.objects.filter(created_at__year=year)
         .annotate(month=ExtractMonth('created_at'))
-        .values('month', 'storage__name')
+        .values('month')
         .annotate(count=Count('id'))
         .order_by('month')
     )

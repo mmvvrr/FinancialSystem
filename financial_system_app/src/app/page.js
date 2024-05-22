@@ -1,5 +1,5 @@
 import AnalyticChartProductPriceByCategory from "@/components/analytics/AnalyticChartProductPriceByCategory";
-import {AnalyticOrderCountCard, AnalyticProductsSaleCountCard, AnalyticCustomerCountCard} from "@/components/analytics";
+import {AnalyticOrderCountCard, AnalyticProductsSaleCountCard, AnalyticCustomerCountCard, AnalyticSupplyCountCard} from "@/components/analytics";
 import {Card} from "primereact/card";
 
 
@@ -32,7 +32,7 @@ const Home = function() {
           <AnalyticCustomerCountCard/>
         </div>
         <div className='col-3'>
-          <AnalyticOrderCountCard years={years}/>
+          <AnalyticSupplyCountCard years={years}/>
         </div>
         <div className="col-4">
           <Card title="Simple Card">
