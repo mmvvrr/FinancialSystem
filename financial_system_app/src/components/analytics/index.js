@@ -4,6 +4,7 @@ import AnalyticOrderCountCard from "@/components/analytics/AnalyticOrderCountCar
 import AnalyticProductsSaleCountCard from "@/components/analytics/AnalyticProductsSaleCountCard";
 import AnalyticCustomerCountCard from "@/components/analytics/AnalyticCustomerCountCard";
 import AnalyticSupplyCountCard from "@/components/analytics/AnalyticSupplyCountCard";
+import AnalyticProductTopTable from "@/components/analytics/AnalyticProductTopTable";
 
 export {
   AnalyticTableTopEmployee,
@@ -12,4 +13,5 @@ export {
   AnalyticProductsSaleCountCard,
   AnalyticCustomerCountCard,
   AnalyticSupplyCountCard,
+  AnalyticProductTopTable,
 }
