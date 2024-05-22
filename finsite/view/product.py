@@ -10,6 +10,7 @@ from django.db.models import Prefetch
 from finsite.service.analytics.product_prices_by_category import product_prices_by_category
 from finsite.service.analytics.product_price_history import product_price_history
 from finsite.service.analytics.product_orders import product_orders
+from finsite.service.analytics.products_by_year import products_by_year
 
 
 class ProductViewSet(viewsets.ModelViewSet):
@@ -49,5 +50,14 @@ class ProductViewSet(viewsets.ModelViewSet):
         )
         return Response(
             {"product_price_history": price_history},
+            status=status.HTTP_200_OK
+        )
+
+
+
+    @action(detail=False, methods=['get'], url_path='analytics/products_by_year')
+    def products_by_year(self, request, pk=None, *args, **kwargs):
+        return Response(
+            {"products_by_year": products_by_year(request.GET.get('year', '2023'), category=request.GET.get('category', '0'), )},
             status=status.HTTP_200_OK
         )
