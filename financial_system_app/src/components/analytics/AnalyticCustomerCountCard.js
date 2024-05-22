@@ -1,22 +1,13 @@
 "use client"
 
 import {Card} from 'primereact/card'
-import {Dropdown} from 'primereact/dropdown'
 import {Divider} from 'primereact/divider'
-import {Button} from 'primereact/button'
-import {useRef, useState} from "react";
-import {OverlayPanel} from "primereact/overlaypanel";
+import {fetchCustomerCountQuery} from "@/hooks/api/analytics/fetchCustomerCount";
 
 const AnalyticProductsSaleCountCard = function () {
 
-  const [selectedYear, setSelectedYear] = useState(null);
-
-  const years = [
-      { name: '2023', code: '2023' },
-      { name: '2024', code: '2024' },
-  ];
-
-  const op = useRef(null);
+    const {data, isPending, isError, error} =
+    fetchCustomerCountQuery()
 
   const header =
     <div className='pt-3'>
@@ -32,8 +23,15 @@ const AnalyticProductsSaleCountCard = function () {
   return (
     <Card header={header}>
       <div>
-        <div className='text-4xl'>8,232</div>
-        <div className='text-1xl'>За прошлый месяц новых 859</div>
+        <div
+          className='text-4xl font-bold text-blue-600'>
+          {isPending ? 'Загрузка' : data?.total_customer.toLocaleString('ru-RU')}
+        </div>
+        <div className='text-1xl flex'>
+          <span>{isPending ? 'Загрузка' : `Муж: ${data?.total_man_customer.toLocaleString('ru-RU')}`}</span>
+          <span className='mx-2'></span>
+          <span>{isPending ? 'Загрузка' : `Жен: ${data?.total_woman_customer.toLocaleString('ru-RU')}`}</span>
+        </div>
       </div>
     </Card>
   )
