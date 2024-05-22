@@ -1,4 +1,4 @@
-import { Inter } from "next/font/google";
+import { Roboto } from "next/font/google";
 //import "./globals.css";
 import 'primereact/resources/themes/viva-light/theme.css';
 import 'primereact/resources/primereact.min.css';
@@ -8,7 +8,12 @@ import ReactQueryProvider from "@/components/ReactQueryProvider";
 import {Splitter, SplitterPanel} from "primereact/splitter";
 import {SideMenuContainer} from "@/components/layout/SideMenu"
 
-const inter = Inter({ subsets: ["latin"] });
+const roboto = Roboto({
+  weight: ['400', '700'],
+  style: ['normal', 'italic'],
+  subsets: ['latin'],
+  display: 'swap',
+});
 
 export const metadata = {
   title: "Аналитика",
