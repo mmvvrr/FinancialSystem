@@ -6,17 +6,17 @@ import {Divider} from 'primereact/divider'
 import {Button} from 'primereact/button'
 import {useRef, useState} from "react";
 import {OverlayPanel} from "primereact/overlaypanel";
+import useGetPastMonthOrderCount from "@/hooks/analytics/useGetPastMonthOrderCount";
+import {fetchProductSaleCountByYearQuery} from "@/hooks/api/analytics/fetchProductSaleCountByYear";
 
-const AnalyticProductsSaleCountCard = function () {
+const AnalyticProductsSaleCountCard = function (props) {
 
-    const years = [
-      { name: '2023', code: '2023' },
-      { name: '2024', code: '2024' },
-  ];
-
-  const [selectedYear, setSelectedYear] = useState(years[years.length - 1]);
+  const [selectedYear, setSelectedYear] = useState(props.years[props.years.length - 1]);
 
   const op = useRef(null);
+
+    const {data, isPending, isError, error} =
+    fetchProductSaleCountByYearQuery(selectedYear.code)
 
   const header =
     <div className='pt-3'>
@@ -34,7 +34,7 @@ const AnalyticProductsSaleCountCard = function () {
         <OverlayPanel ref={op}>
           <Dropdown
             value={selectedYear}
-            onChange={(e) => setSelectedYear(e.value)} options={years} optionLabel="name"
+            onChange={(e) => setSelectedYear(e.value)} options={props.years} optionLabel="name"
             placeholder="Выбор года"
             className="w-full md:w-14rem"
           />
@@ -46,8 +46,10 @@ const AnalyticProductsSaleCountCard = function () {
   return (
     <Card header={header}>
       <div>
-        <div className='text-4xl'>17,969</div>
-        <div className='text-1xl'>За прошлый месяц 6,545</div>
+        <div
+          className='text-4xl font-bold text-blue-600'>{isPending ? 'Загрузка' : data?.total_sells.toLocaleString('ru-RU')}</div>
+        <div className='text-1xl'>За прошлый
+          месяц {isPending ? 'Загрузка' : useGetPastMonthOrderCount(data.monthly_sell_list)}</div>
       </div>
     </Card>
   )

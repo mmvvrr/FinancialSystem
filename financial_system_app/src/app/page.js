@@ -2,6 +2,12 @@ import AnalyticChartProductPriceByCategory from "@/components/analytics/Analytic
 import {AnalyticOrderCountCard, AnalyticProductsSaleCountCard, AnalyticCustomerCountCard} from "@/components/analytics";
 import {Card} from "primereact/card";
 
+
+  const years = [
+      { name: '2023', code: '2023' },
+      { name: '2024', code: '2024' },
+  ];
+
 const Home = function() {
 
   return (
@@ -17,16 +23,16 @@ const Home = function() {
       </div>
       <div className="grid">
         <div className='col-3'>
-          <AnalyticOrderCountCard/>
+          <AnalyticOrderCountCard years={years}/>
         </div>
         <div className='col-3'>
-          <AnalyticProductsSaleCountCard/>
+          <AnalyticProductsSaleCountCard years={years}/>
         </div>
         <div className='col-3'>
           <AnalyticCustomerCountCard/>
         </div>
         <div className='col-3'>
-          <AnalyticOrderCountCard/>
+          <AnalyticOrderCountCard years={years}/>
         </div>
         <div className="col-4">
           <Card title="Simple Card">

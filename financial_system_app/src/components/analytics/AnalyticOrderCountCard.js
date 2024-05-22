@@ -9,14 +9,9 @@ import {OverlayPanel} from "primereact/overlaypanel";
 import {fetchOrderCountByYearQuery} from "@/hooks/api/analytics/fetchOrderCountByYear";
 import useGetPastMonthOrderCount from "@/hooks/analytics/useGetPastMonthOrderCount";
 
-const AnalyticOrderCountCard = function () {
+const AnalyticOrderCountCard = function (props) {
 
-  const years = [
-    { name: '2023', code: '2023' },
-    { name: '2024', code: '2024' },
-  ];
-
-  const [selectedYear, setSelectedYear] = useState(years[years.length - 1]);
+  const [selectedYear, setSelectedYear] = useState(props.years[props.years.length - 1]);
 
   const {data, isPending, isError, error} =
     fetchOrderCountByYearQuery(selectedYear.code)
@@ -39,7 +34,7 @@ const AnalyticOrderCountCard = function () {
           </label>
           <Dropdown
             value={selectedYear}
-            onChange={(e) => setSelectedYear(e.value)} options={years} optionLabel="name"
+            onChange={(e) => setSelectedYear(e.value)} options={props.years} optionLabel="name"
             placeholder="Выбор года" className="w-full md:w-14rem"
           />
         </OverlayPanel>

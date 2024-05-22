@@ -18,7 +18,7 @@ const fetchOrderCountByYear = async function (year) {
 
 const fetchOrderCountByYearQuery = function (year) {
   return useQuery({
-    queryKey: ['analytic_products_price', year],
+    queryKey: ['analytic-order-count', year],
     queryFn: async () => await fetchOrderCountByYear(year),
     options: {
       keepPreviousData: true,
