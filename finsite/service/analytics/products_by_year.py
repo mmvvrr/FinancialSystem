@@ -12,7 +12,7 @@ def products_by_year(year, **kwargs):
     orders = Order.objects.filter(created_at__year=year)
     if kwargs.get('category') != '0':
         orders = orders.filter(order_lines__product__category=kwargs.get('category'))
-    total_orders = orders.count()
+    total_orders = orders.aggregate(total_quantity=Sum('order_lines__quantity'))['total_quantity'] or 0
 
     monthly_orders = (
         orders
