@@ -3,6 +3,7 @@
 import {DataTable} from "primereact/datatable";
 import {Column} from "primereact/column";
 import {Card} from "primereact/card";
+import {Divider} from "primereact/divider";
 import {fetchProductTopQuery} from "@/hooks/api/analytics/product/fetchProductTop";
 
 const AnalyticProductTopTable = function () {
@@ -23,7 +24,8 @@ const AnalyticProductTopTable = function () {
   )
 
   return (
-    <Card title="Топ 5 продукции">
+    <Card title="Топ 5 продукции за весь период">
+      <Divider/>
       <DataTable value={data} >
         <Column field="product__name" header="Название"></Column>
         <Column field='total_quantity' header="Кол-во" body={formateNumberTotalQuantityToLocaleRu}></Column>
