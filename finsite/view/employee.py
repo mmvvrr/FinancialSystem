@@ -7,6 +7,7 @@ from finsite.models import Employee
 import django_filters.rest_framework
 
 from finsite.service.analytics.employee_salaries import get_employee_salaries
+from finsite.service.analytics.employee_sales import employee_sales
 
 
 class EmployeeViewSet(viewsets.ModelViewSet):
@@ -20,5 +21,12 @@ class EmployeeViewSet(viewsets.ModelViewSet):
     def employee_salaries(self, request, pk=None, *args, **kwargs):
         return Response(
             {"employee_salaries": get_employee_salaries()},
+            status=status.HTTP_200_OK
+        )
+
+    @action(detail=False, methods=['get'], url_path='analytics/employee_sales')
+    def employee_revenue(self, request, pk=None, *args, **kwargs):
+        return Response(
+            {"employee_sales": employee_sales(request.GET.get('employee'))},
             status=status.HTTP_200_OK
         )
