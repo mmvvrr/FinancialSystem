@@ -67,7 +67,8 @@ class ProductViewSet(viewsets.ModelViewSet):
 
     @action(detail=False, methods=['get'], url_path='analytics/products_top')
     def products_top(self, request, pk=None, *args, **kwargs):
+        print(request.query_params.getlist('years', ''))
         return Response(
-            {"products_top": products_top(count=request.GET.get('count', '500'), )},
+            {"products_top": products_top(count=request.GET.get('count', '500'), category=request.query_params.getlist('category', '0'))},
             status=status.HTTP_200_OK
         )

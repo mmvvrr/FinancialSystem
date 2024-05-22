@@ -8,12 +8,15 @@ from django.db.models import Q, Count
 
 
 def products_top(**kwargs):
-    orders = Order.objects
+    products = OrderLine.objects
+    if kwargs.get('category') != '0':
+        products = products.filter(order_lines__product__category__in=kwargs.get('category'))
 
     return (
-        orders
-        .values('order_lines__product__name')
-        .annotate(total_quantity=Sum('order_lines__quantity'))
-        .order_by('-total_quantity')[:int(kwargs.get('count'))]  # Топ 10 продуктов
+        products
+        .values('product__name')
+        .annotate(total_quantity=Sum('quantity'))
+        .annotate(total_sum=Sum(F('quantity') * F('price')))
+        .order_by('-total_quantity')[:int(kwargs.get('count', 10))]
     )
 
