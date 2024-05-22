@@ -5,3 +5,4 @@ from .product_price_history import ProductPriceHistoryLineViewSet
 from .product import ProductViewSet
 from .category import CategoryViewSet
 from .employee import EmployeeViewSet
+from .supply import SupplyViewSet
