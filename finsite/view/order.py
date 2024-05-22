@@ -20,7 +20,8 @@ class OrderViewSet(viewsets.ModelViewSet):
     @action(detail=False, methods=['get'], url_path='analytics/order_by_year')
     def order_by_year(self, request, pk=None, *args, **kwargs):
         return Response(
-            {"order_by_year": order_by_year()},
+            {"order_by_year": order_by_year(to_date=request.GET.get('to_date'),
+            from_date=request.GET.get('from_date'))},
             status=status.HTTP_200_OK
         )
 

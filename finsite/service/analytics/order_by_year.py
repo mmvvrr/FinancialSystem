@@ -24,6 +24,7 @@ def order_by_year(**kwargs):
     return (
         Order
         .objects
+        .filter(created_at__gte=to_date, created_at__lte=from_date)
         .annotate(sales=ArraySubquery(subquery))
         .values("id", "created_at", "sales")[:10]
     )
