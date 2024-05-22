@@ -15,14 +15,21 @@ const SideMenuPanel = function () {
     }
   },
   {
-    label: 'Аналитика',
+    label: 'Работник',
     icon: 'pi pi-link',
     command: () => {
       router.push('/analytics');
     }
   },
   {
-    label: 'Router',
+    label: 'Покупатели',
+    icon: 'pi pi-link',
+    command: () => {
+      router.push('/analytics');
+    }
+  },
+  {
+    label: 'Категории',
     icon: 'pi pi-palette',
     items: [
       {
@@ -38,7 +45,7 @@ const SideMenuPanel = function () {
     ]
   },
     {
-      label: 'External',
+      label: 'Поставки',
       icon: 'pi pi-home',
       items: [
         {
