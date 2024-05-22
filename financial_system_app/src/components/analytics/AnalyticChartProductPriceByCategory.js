@@ -25,8 +25,6 @@ const AnalyticChartProductPriceByCategory = function(props) {
       <Chart
         chartType="PieChart"
         data={graphData}
-        width="1280px"
-        height="720px"
         legendToggle
       />
     </div>
