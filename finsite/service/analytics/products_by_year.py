@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from django.db.models.functions import ExtractMonth
+from django.db.models.functions import ExtractMonth, JSONObject
 
 from finsite.models import Order
 from django.db.models import F, OuterRef, Sum, Subquery, Func
@@ -25,7 +25,7 @@ def products_by_year(year, **kwargs):
     return (
         {
             "year": year,
-            "total_order": total_orders,
-            "monthly_orders_list": list(monthly_orders),
+            "total_sells": total_orders,
+            "monthly_sell_list": list(monthly_orders),
         }
     )

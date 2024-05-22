@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from django.db.models.functions import ExtractMonth
+from django.db.models.functions import ExtractMonth, JSONObject
 
 from finsite.models import Order
 from django.db.models import Q, Count
