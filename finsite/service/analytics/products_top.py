@@ -10,13 +10,13 @@ from django.db.models import Q, Count
 def products_top(**kwargs):
     products = OrderLine.objects
     if kwargs.get('category') != '0':
-        products = products.filter(order_lines__product__category__in=kwargs.get('category'))
+        products = products.filter(product__category__in=kwargs.get('category'))
 
     return (
         products
         .values('product__name')
         .annotate(total_quantity=Sum('quantity'))
         .annotate(total_sum=Sum(F('quantity') * F('price')))
-        .order_by('-total_quantity')[:int(kwargs.get('count', 10))]
+        .order_by('-total_quantity')[:int(kwargs.get('count'))]
     )
 
