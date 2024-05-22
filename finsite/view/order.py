@@ -6,6 +6,7 @@ from finsite.models import Order
 import django_filters.rest_framework
 
 from finsite.service.analytics.order_by_year import order_by_year
+from finsite.service.analytics.order_count_by_year import order_count_by_year
 
 
 class OrderViewSet(viewsets.ModelViewSet):
@@ -20,5 +21,12 @@ class OrderViewSet(viewsets.ModelViewSet):
     def order_by_year(self, request, pk=None, *args, **kwargs):
         return Response(
             {"order_by_year": order_by_year()},
+            status=status.HTTP_200_OK
+        )
+
+    @action(detail=False, methods=['get'], url_path='analytics/order_count_by_year')
+    def order_count_by_year(self, request, pk=None, *args, **kwargs):
+        return Response(
+            {"order_count": order_count_by_year(request.GET.get('year', '2023'))},
             status=status.HTTP_200_OK
         )

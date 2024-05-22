@@ -25,5 +25,5 @@ def order_by_year(**kwargs):
         Order
         .objects
         .annotate(sales=ArraySubquery(subquery))
-        .values("id", "created_at", "sales")
+        .values("id", "created_at", "sales")[:10]
     )
