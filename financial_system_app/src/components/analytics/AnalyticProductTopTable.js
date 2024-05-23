@@ -24,7 +24,7 @@ const AnalyticProductTopTable = function () {
   )
 
   return (
-    <Card title="Топ 5 продукции за весь период">
+    <Card title="Топ 5 проданной продукции за весь период">
       <Divider/>
       <DataTable value={data} >
         <Column field="product__name" header="Название продукта"></Column>
