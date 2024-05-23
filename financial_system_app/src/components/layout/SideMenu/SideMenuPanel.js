@@ -44,7 +44,7 @@ const SideMenuPanel = function () {
     label: 'Покупатели',
     icon: 'pi pi-users',
     command: () => {
-      router.push('/analytics');
+      router.push('/customer');
     }
   },
   {
