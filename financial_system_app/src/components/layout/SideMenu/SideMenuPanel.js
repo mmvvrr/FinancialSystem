@@ -35,7 +35,7 @@ const SideMenuPanel = function () {
       {
         label: 'Styled',
         icon: 'pi pi-eraser',
-        // url: '/theming'
+        url: '/category'
       },
       {
         label: 'Unstyled',
