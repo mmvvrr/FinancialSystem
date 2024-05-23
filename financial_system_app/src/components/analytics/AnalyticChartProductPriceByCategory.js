@@ -6,7 +6,7 @@ import { Chip } from 'primereact/chip';
 
 const AnalyticChartProductPriceByCategory = function(props) {
 
-  const { data, isLoading, isPending, isError } = fetchGetProductPriceByCategoryQuery(8);
+  const { data, isLoading, isPending, isError } = fetchGetProductPriceByCategoryQuery(6);
 
   if (isPending) {
     return <div>Loading...</div>
