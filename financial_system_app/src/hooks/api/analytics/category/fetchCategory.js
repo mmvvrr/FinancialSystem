@@ -3,7 +3,7 @@ import {useQuery} from "@tanstack/react-query";
 
 const fetchCategoryList = async function () {
   try {
-    const res = await axios.get(`http://127.0.0.1:8000/api/categories/`)
+    const res = await axios.get(`http://127.0.0.1:8000/api/categories/?page_size=1000`)
     return res.data;
   } catch (err) {
     return err
