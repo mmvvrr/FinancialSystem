@@ -15,9 +15,9 @@ const SideMenuPanel = function () {
   )
 
 
-  const categories = data.results.map(category => {return{
+  const categories = data.results.filter(category => category.parent_id === null).map(category => {return{
     label: category.name,
-    icon: 'pi pi-eraser',
+    icon: 'pi pi-shop',
     command: () => {
       router.push(`/category/${category.pk}`);
     }

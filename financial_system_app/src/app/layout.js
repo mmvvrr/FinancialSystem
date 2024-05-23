@@ -32,7 +32,7 @@ export default function RootLayout({ children }) {
           </ReactQueryProvider>
         </SplitterPanel>
         <SplitterPanel minSize={85} size={85}>
-          <div className='flex w-full'>
+          <div className='w-full'>
             <ScrollPanel style={{height: '99vh'}}>
               <ReactQueryProvider>
                 {children}
