@@ -8,6 +8,7 @@ import {AnalyticSupplyCountCard} from "@/components/analytics/supply";
 import {
   AnalyticCategoryProductTable,
   AnalyticCategoryProductCountSaleChart,
+  AnalyticCategoryCountOrderCard,
 } from "@/components/analytics/category/"
 
 
@@ -38,7 +39,7 @@ export default function Page({ params }) {
       <div className="grid">
         <div className='col-3'>
           <div className='col-12'>
-            <AnalyticOrderCountCard years={years}/>
+            <AnalyticCategoryCountOrderCard category_id={params.id}/>
           </div>
           <div className='col-12'>
             <AnalyticProductsSaleCountCard years={years}/>
