@@ -6,6 +6,7 @@ from finsite.serializer import CustomerSerializer
 from finsite.models import Customer
 import django_filters.rest_framework
 from finsite.service.analytics.customer_count import customer_count
+from finsite.service.analytics.customer_purchases import customer_purchases
 
 
 class CustomerViewSet(viewsets.ModelViewSet):
@@ -19,5 +20,12 @@ class CustomerViewSet(viewsets.ModelViewSet):
     def employee_revenue(self, request, pk=None, *args, **kwargs):
         return Response(
             {"customers_count": customer_count()},
+            status=status.HTTP_200_OK
+        )
+
+    @action(detail=False, methods=['get'], url_path='analytics/customer_purchases')
+    def customer_purchases(self, request, pk=None, *args, **kwargs):
+        return Response(
+            {"customers purchases": customer_purchases(category=request.query_params.getlist('category[]', '0'))},
             status=status.HTTP_200_OK
         )

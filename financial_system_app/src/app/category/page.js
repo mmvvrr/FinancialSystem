@@ -1,11 +1,21 @@
-import AnalyticChartProductPriceByCategory from "@/components/analytics/AnalyticChartProductPriceByCategory";
+import AnalyticChartProductPriceByCategory from "@/components/analytics/proudct/AnalyticChartProductPriceByCategory";
 import {
-  AnalyticOrderCountCard,
+  AnalyticCustomerCountCard
+} from "@/components/analytics/customer"
+
+import {
   AnalyticProductsSaleCountCard,
-  AnalyticCustomerCountCard,
-  AnalyticSupplyCountCard,
   AnalyticProductTopTable
-} from "@/components/analytics";
+} from "@/components/analytics/proudct"
+
+import {
+  AnalyticOrderCountCard
+} from "@/components/analytics/order"
+
+import {
+  AnalyticSupplyCountCard
+} from "@/components/analytics/supply"
+
 import {Card} from "primereact/card";
 
 
@@ -21,10 +31,10 @@ const Home = function() {
 
       <div className='mt-5 mb-8'>
         <div className='text-6xl'>
-          Общая информация о категориях
+          Добро пожаловать в систему 👋
         </div>
         <div>
-
+          Система предназначена для аналитики предприятия
         </div>
       </div>
       <div className="grid">

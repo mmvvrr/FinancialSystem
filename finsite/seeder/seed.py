@@ -21,3 +21,5 @@ def seed_db():
     store_seeder()
 
     order_seeder()
+
+    review_seeder()

@@ -8,3 +8,4 @@ from .store_seed import store_seeder
 from .supply_seed import supply_seeder
 from .price_history_seed import price_seeder
 from .order_seed import order_seeder
+from .rating_seeder import review_seeder
