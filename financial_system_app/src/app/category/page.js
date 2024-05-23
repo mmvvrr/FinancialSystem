@@ -31,10 +31,10 @@ const Home = function() {
 
       <div className='mt-5 mb-8'>
         <div className='text-6xl'>
-          Добро пожаловать в систему 👋
+          Общая информация о категориях
         </div>
         <div>
-          Система предназначена для аналитики предприятия
+
         </div>
       </div>
       <div className="grid">
@@ -50,19 +50,6 @@ const Home = function() {
         <div className='col-3'>
           <AnalyticSupplyCountCard years={years}/>
         </div>
-        <div className="col-7">
-          <AnalyticProductTopTable/>
-        </div>
-        <div className="col-5">
-          <Card title="Цены товаров по категориям">
-            <AnalyticChartProductPriceByCategory/>
-          </Card>
-        </div>
-        {/*<div className="col-4">*/}
-        {/*  <Card title="Simple Card">*/}
-        {/*    <AnalyticChartProductPriceByCategory/>*/}
-        {/*  </Card>*/}
-        {/*</div>*/}
       </div>
     </div>
   );

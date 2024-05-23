@@ -27,7 +27,9 @@ export default function RootLayout({ children }) {
       <body className='mx-0 my-0'>
       <Splitter className='flex h-screen'>
         <SplitterPanel minSize={5} size={15}>
-          <SideMenuContainer/>
+          <ReactQueryProvider>
+            <SideMenuContainer/>
+          </ReactQueryProvider>
         </SplitterPanel>
         <SplitterPanel minSize={85} size={85}>
           <div className='flex w-full'>

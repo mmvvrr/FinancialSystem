@@ -2,8 +2,29 @@
 
 import {useRouter} from "next/navigation";
 import {PanelMenu} from "primereact/panelmenu";
+import {fetchCategoryListQuery} from "@/hooks/api/analytics/category/fetchCategory";
 
 const SideMenuPanel = function () {
+
+
+  const {data, isPending, isSuccess} = fetchCategoryListQuery();
+
+
+  if(isPending) return (
+    <span>Загрузка...</span>
+  )
+
+
+  const categories = data.results.map(category => {return{
+    label: category.name,
+    icon: 'pi pi-eraser',
+    command: () => {
+      router.push(`/category/${category.pk}`);
+    }
+  }})
+
+  console.log(data)
+
   const router = useRouter();
 
   const items = [
@@ -31,18 +52,7 @@ const SideMenuPanel = function () {
   {
     label: 'Категории',
     icon: 'pi pi-sitemap',
-    items: [
-      {
-        label: 'Styled',
-        icon: 'pi pi-eraser',
-        url: '/category'
-      },
-      {
-        label: 'Unstyled',
-        icon: 'pi pi-heart',
-        // url: '/unstyled'
-      }
-    ]
+    items: [...categories]
   },
     {
       label: 'Поставки',
@@ -60,7 +70,7 @@ const SideMenuPanel = function () {
         }
       ]
     }
-  ];
+  ]
 
   return (
     <PanelMenu model={items} className="w-full py-2"
