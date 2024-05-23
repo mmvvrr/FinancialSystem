@@ -7,6 +7,7 @@ import 'primeflex/primeflex.css';
 import ReactQueryProvider from "@/components/ReactQueryProvider";
 import {Splitter, SplitterPanel} from "primereact/splitter";
 import {SideMenuContainer} from "@/components/layout/SideMenu"
+import {ScrollPanel} from "primereact/scrollpanel";
 
 const roboto = Roboto({
   weight: ['400', '700'],
@@ -30,9 +31,11 @@ export default function RootLayout({ children }) {
         </SplitterPanel>
         <SplitterPanel minSize={85} size={85}>
           <div className='flex w-full'>
-            <ReactQueryProvider>
-              {children}
-            </ReactQueryProvider>
+            <ScrollPanel style={{height: '99vh'}}>
+              <ReactQueryProvider>
+                {children}
+              </ReactQueryProvider>
+            </ScrollPanel>
           </div>
         </SplitterPanel>
       </Splitter>

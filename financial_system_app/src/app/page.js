@@ -1,11 +1,21 @@
-import AnalyticChartProductPriceByCategory from "@/components/analytics/AnalyticChartProductPriceByCategory";
+import AnalyticChartProductPriceByCategory from "@/components/analytics/proudct/AnalyticChartProductPriceByCategory";
 import {
-  AnalyticOrderCountCard,
+  AnalyticCustomerCountCard
+} from "@/components/analytics/customer"
+
+import {
   AnalyticProductsSaleCountCard,
-  AnalyticCustomerCountCard,
-  AnalyticSupplyCountCard,
   AnalyticProductTopTable
-} from "@/components/analytics";
+} from "@/components/analytics/proudct"
+
+import {
+  AnalyticOrderCountCard
+} from "@/components/analytics/order"
+
+import {
+  AnalyticSupplyCountCard
+} from "@/components/analytics/supply"
+
 import {Card} from "primereact/card";
 
 
