@@ -7,7 +7,7 @@ from finsite.serializer import CategorySerializer
 from finsite.models import Category
 import django_filters.rest_framework
 
-from finsite.service.analytics.category import category_order_count
+from finsite.service.analytics.category import *
 
 
 class StandardResultsSetPagination(PageNumberPagination):
@@ -27,5 +27,12 @@ class CategoryViewSet(viewsets.ModelViewSet):
     def category_order_count(self, request, *args, **kwargs):
         return Response(
             {"category_total_order": category_order_count(kwargs["pk"])},
+            status=status.HTTP_200_OK
+        )
+
+    @action(detail=True, methods=['get'], url_path='analytics/category_product_information')
+    def category_product_information(self, request, *args, **kwargs):
+        return Response(
+            {"category_product_information": category_product_information(kwargs["pk"])},
             status=status.HTTP_200_OK
         )

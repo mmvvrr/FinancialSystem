@@ -23,8 +23,6 @@ const SideMenuPanel = function () {
     }
   }})
 
-  console.log(data)
-
   const router = useRouter();
 
   const items = [

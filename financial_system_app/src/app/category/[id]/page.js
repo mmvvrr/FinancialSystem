@@ -30,7 +30,7 @@ export default function Page({ params }) {
 
       <div className='mt-5 mb-8'>
         <div className='text-6xl'>
-          Общая информация о {data.name}
+          Общая информация о "{data.name}"
         </div>
         <div>
 
@@ -54,7 +54,7 @@ export default function Page({ params }) {
           </div>
         </div>
         <div className='col-6'>
-          <AnalyticCategoryProductTable/>
+          <AnalyticCategoryProductTable category_id={params.id}/>
         </div>
 
         <div className='col-7'>

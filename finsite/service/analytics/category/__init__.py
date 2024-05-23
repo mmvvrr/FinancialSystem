@@ -1,1 +1,2 @@
 from .category_order_count import category_order_count
+from .category_product_information import category_product_information
