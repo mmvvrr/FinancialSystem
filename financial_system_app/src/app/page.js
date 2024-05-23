@@ -44,7 +44,7 @@ const Home = function() {
           <AnalyticProductTopTable/>
         </div>
         <div className="col-5">
-          <Card title="Simple Card">
+          <Card title="Цены товаров по категориям">
             <AnalyticChartProductPriceByCategory/>
           </Card>
         </div>
