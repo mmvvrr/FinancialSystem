@@ -1,4 +1,4 @@
-import { Roboto } from "next/font/google";
+import { Inter } from "next/font/google";
 //import "./globals.css";
 import 'primereact/resources/themes/viva-light/theme.css';
 import 'primereact/resources/primereact.min.css';
@@ -9,12 +9,7 @@ import {Splitter, SplitterPanel} from "primereact/splitter";
 import {SideMenuContainer} from "@/components/layout/SideMenu"
 import {ScrollPanel} from "primereact/scrollpanel";
 
-const roboto = Roboto({
-  weight: ['400', '700'],
-  style: ['normal', 'italic'],
-  subsets: ['latin'],
-  display: 'swap',
-});
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Аналитика",

@@ -1,17 +1,13 @@
 "use client"
 
 import {fetchCategoryDetailQuery} from "@//hooks/api/analytics/category/fetchCategory"
-import {AnalyticOrderCountCard} from "@/components/analytics/order";
-import {AnalyticProductsSaleCountCard} from "@/components/analytics/proudct";
-import {AnalyticCustomerCountCard} from "@/components/analytics/customer";
-import {AnalyticSupplyCountCard} from "@/components/analytics/supply";
 import {
   AnalyticCategoryProductTable,
-  AnalyticCategoryProductCountSaleChart,
   AnalyticCategoryCountOrderCard,
   AnalyticCategoryProductCountSale,
   AnalyticCategorySupplyCount,
   AnalyticCategoryCustomerCountCard,
+  AnalyticCategoryProductPriceHistoryChart,
 } from "@/components/analytics/category/"
 
 
@@ -61,7 +57,8 @@ export default function Page({ params }) {
         </div>
 
         <div className='col-7'>
-          <AnalyticCategoryProductCountSaleChart/>
+          <AnalyticCategoryProductPriceHistoryChart/>
+          {/*<AnalyticCategoryProductCountSaleChart/>*/}
         </div>
 
         <div className='col-5'>

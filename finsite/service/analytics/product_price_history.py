@@ -25,4 +25,5 @@ def product_price_history(product_id, **kwargs):
         .filter(pk=product_id)
         .annotate(price=ArraySubquery(subquery))
         .values("name", "price")
+        [0]
     )

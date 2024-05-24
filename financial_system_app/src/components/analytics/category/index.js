@@ -5,6 +5,8 @@ import AnalyticCategoryCountOrderCard from "@/components/analytics/category/Anal
 import AnalyticCategoryProductCountSale from "@/components/analytics/category/AnalyticCategoryProductCountSale";
 import AnalyticCategorySupplyCount from "@/components/analytics/category/AnalyticCategorySupplyCount";
 import AnalyticCategoryCustomerCountCard from "@/components/analytics/category/AnalyticCategoryCustomerCountCard";
+import AnalyticCategoryProductPriceHistoryChart
+  from "@/components/analytics/category/AnalyticCategoryProductPriceHistoryChart";
 
 
 export {
@@ -14,4 +16,5 @@ export {
   AnalyticCategoryProductCountSale,
   AnalyticCategorySupplyCount,
   AnalyticCategoryCustomerCountCard,
+  AnalyticCategoryProductPriceHistoryChart,
 }
