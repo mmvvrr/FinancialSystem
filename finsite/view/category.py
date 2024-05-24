@@ -54,3 +54,10 @@ class CategoryViewSet(viewsets.ModelViewSet):
             status=status.HTTP_200_OK
         )
 
+    @action(detail=True, methods=['get'], url_path='analytics/category_customer_count')
+    def category_customer_count(self, request, *args, **kwargs):
+        return Response(
+            {"category_customer_count": category_customer_count(kwargs["pk"])},
+            status=status.HTTP_200_OK
+        )
+
