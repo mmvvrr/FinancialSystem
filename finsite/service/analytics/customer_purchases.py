@@ -11,6 +11,11 @@ def customer_purchases(**kwargs):
     customer = OrderLine.objects
     if kwargs.get('category') != '0':
         customer = customer.filter(product__category__in=kwargs.get('category'))
+    if kwargs.get('is_sum') != '1':
+        param = '-total_sum'
+    else:
+        param = '-total_quantity'
+
 
     return (
         customer
@@ -18,5 +23,6 @@ def customer_purchases(**kwargs):
         .annotate(total_quantity=Sum('quantity'))
         #.annotate(data=JSONObject(product=F("product__name")))
         .annotate(total_sum=Sum(F('quantity') * F('price')))
+        .order_by(param)[:5]
     )
 

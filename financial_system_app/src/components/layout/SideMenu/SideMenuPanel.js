@@ -41,6 +41,13 @@ const SideMenuPanel = function () {
     }
   },
   {
+    label: 'Аналитика цен',
+    icon: 'pi pi-dollar',
+    command: () => {
+      router.push('/prices');
+    }
+  },
+  {
     label: 'Покупатели',
     icon: 'pi pi-users',
     command: () => {
@@ -55,18 +62,9 @@ const SideMenuPanel = function () {
     {
       label: 'Поставки',
       icon: 'pi pi-truck',
-      items: [
-        {
-          label: 'React.js',
-          icon: 'pi pi-star',
-          // url: 'https://react.dev/'
-        },
-        {
-          label: 'Vite.js',
-          icon: 'pi pi-bookmark',
-          // url: 'https://vite.dev/'
-        }
-      ]
+      command: () => {
+      router.push('/suplyes');
+    }
     }
   ]
 

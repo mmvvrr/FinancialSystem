@@ -26,6 +26,7 @@ class CustomerViewSet(viewsets.ModelViewSet):
     @action(detail=False, methods=['get'], url_path='analytics/customer_purchases')
     def customer_purchases(self, request, pk=None, *args, **kwargs):
         return Response(
-            {"customers purchases": customer_purchases(category=request.query_params.getlist('category[]', '0'))},
+            {"customers_purchases": customer_purchases(category=request.query_params.getlist('category', '0'),
+                                                       is_sum=request.GET.get('is_sum', '1'))},
             status=status.HTTP_200_OK
         )

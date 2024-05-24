@@ -1,5 +1,3 @@
-"use client"
-
 import AnalyticChartProductPriceByCategory from "@/components/analytics/proudct/AnalyticChartProductPriceByCategory";
 import {
   AnalyticCustomerCountCard
@@ -20,9 +18,6 @@ import {
 
 import {Card} from "primereact/card";
 import AnalyticCustomerPurchasesCard from "@/components/analytics/customer/AnalyticCustomerPurchasesCard";
-import AnaliticCustomerPurchasesTable from "@/components/analytics/customer/AnaliticCustomerPurchasesTable";
-import {AnalyticCategoryProductTable} from "@/components/analytics/category";
-import {Divider} from "primereact/divider";
 
 
   const years = [
@@ -33,28 +28,19 @@ import {Divider} from "primereact/divider";
 const Home = function() {
 
   return (
-      <div className="px-5 py-4 w-full">
       <div>
           <div className='text-6xl'>
           Аналитика по покупателям
         </div>
-          <div className="grid">
-
-              <div className='col-7'>
-        <AnalyticCustomerPurchasesCard category={6} is_sum={'1'}/>
-              </div>
-              <div className='col-5'>
-          <AnaliticCustomerPurchasesTable category={6}/>
-              </div>
+          <div className='text-2xl'>
+          Покупатели с самой большой суммой покупок
+        </div>
+        <AnalyticCustomerPurchasesCard category={4} is_sum={'1'}/>
           <br/>
-             <div className='col-7'>
+          <div className='text-2xl'>
+          Покупатели с самой большой суммой покупок
+        </div>
         <AnalyticCustomerPurchasesCard category={4} is_sum={'0'}/>
-             </div>
-                 <div className='col-5'>
-          <AnaliticCustomerPurchasesTable category={4}/>
-                 </div>
-      </div>
-      </div>
       </div>
 
   );
