@@ -5,7 +5,6 @@ from finsite.models import OrderLine, Category, Order, Product
 
 
 def category_product_information(category):
-
     products = (
         Product
         .objects
@@ -16,6 +15,5 @@ def category_product_information(category):
         )
         .values('name', 'total_quantity', 'total_amount')
     )
-
 
     return products
