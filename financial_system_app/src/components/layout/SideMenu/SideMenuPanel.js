@@ -37,7 +37,7 @@ const SideMenuPanel = function () {
     label: 'Работник',
     icon: 'pi pi-user',
     command: () => {
-      router.push('/analytics');
+      router.push('/employee');
     }
   },
   {
