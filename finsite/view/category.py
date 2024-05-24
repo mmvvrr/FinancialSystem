@@ -36,3 +36,28 @@ class CategoryViewSet(viewsets.ModelViewSet):
             {"category_product_information": category_product_information(kwargs["pk"])},
             status=status.HTTP_200_OK
         )
+
+    @action(detail=True, methods=['get'], url_path='analytics/category_product_count_sale')
+    def category_product_count_sale(self, request, *args, **kwargs):
+
+        products = category_product_information(kwargs["pk"])
+
+        return Response(
+            {"category_product_count_sale": sum(list(map(lambda x: x["total_quantity"], products)))},
+            status=status.HTTP_200_OK
+        )
+
+    @action(detail=True, methods=['get'], url_path='analytics/category_supply_count')
+    def category_supply_count(self, request, *args, **kwargs):
+        return Response(
+            {"category_product_count_sale": category_supply_count(kwargs["pk"])},
+            status=status.HTTP_200_OK
+        )
+
+    @action(detail=True, methods=['get'], url_path='analytics/category_customer_count')
+    def category_customer_count(self, request, *args, **kwargs):
+        return Response(
+            {"category_customer_count": category_customer_count(kwargs["pk"])},
+            status=status.HTTP_200_OK
+        )
+
