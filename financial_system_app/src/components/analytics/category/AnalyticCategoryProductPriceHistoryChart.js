@@ -1,31 +1,35 @@
 "use client"
 import {Chart} from "react-google-charts"
 import {fetchProductPriceHistoryQuery} from "@/hooks/api/analytics/product/fetchProductPriceHistory";
-import {useState} from "react";
 import {Card} from 'primereact/card'
+import {Calendar} from 'primereact/calendar'
+import {Dropdown} from "primereact/dropdown";
 
-const AnalyticCategoryProductPriceHistoryChart = function () {
+const AnalyticCategoryProductPriceHistoryChart = function (props) {
 
-  const {data, isPending, isError} = fetchProductPriceHistoryQuery(3)
+  const {data, isPending, isError} = fetchProductPriceHistoryQuery(
+    props.productId,
+    {toDate: props.toDate, fromDate: props.fromDate}
+  )
 
 
   if (isPending) {
     return (
-      <span>Загрузка...</span>
+      <div>Загрузка...</div>
     )
   }
 
+  if (isError) {
+    return (
+      <div>Ошибка</div>
+    )
+  }
 
   let dataGraph = data.price.map(price => {
     return [price.created_at, price.price]
   })
 
   dataGraph.unshift(["Дата", "Стоимость в руб."])
-
-  const firstValue = dataGraph[1][1]
-
-  console.log(firstValue)
-
 
   const options = {
     curveType: "function",
@@ -36,15 +40,13 @@ const AnalyticCategoryProductPriceHistoryChart = function () {
 
 
   return (
-    <Card title='История изменения цен'>
-      <Chart
+    <Chart
         chartType="LineChart"
         width="100%"
         height="400px"
         data={dataGraph}
         options={options}
-      />
-    </Card>
+    />
   )
 }
 

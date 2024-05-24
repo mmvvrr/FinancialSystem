@@ -13,7 +13,7 @@ def category_product_information(category):
             total_quantity=Count('order_lines__order', distinct=True),
             total_amount=Round(Sum(F('order_lines__quantity') * F('order_lines__price__price')), 2)
         )
-        .values('name', 'total_quantity', 'total_amount')
+        .values('pk', 'name', 'total_quantity', 'total_amount')
     )
 
     return products
