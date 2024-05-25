@@ -35,6 +35,6 @@ class CustomerViewSet(viewsets.ModelViewSet):
     @action(detail=False, methods=['get'], url_path='analytics/customers_information')
     def customers_information(self, request, pk=None, *args, **kwargs):
         return Response(
-            {"customers_purchases": customers_information()[:100]},
+            {"result": customers_information()},
             status=status.HTTP_200_OK
         )

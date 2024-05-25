@@ -6,12 +6,6 @@ import {
   AnalyticCustomerInformationTable
 } from "@/components/analytics/customer"
 
-
-  const years = [
-      { name: '2023', code: '2023' },
-      { name: '2024', code: '2024' },
-  ];
-
 const Home = function() {
 
   return (
