@@ -1,12 +1,10 @@
 "use client"
 import { Chart } from "react-google-charts";
 import {fetchGetProductPriceByCategoryQuery} from "@/hooks/api/analytics/useGetProductPriceByCategory";
-import {ProgressSpinner} from "primereact/progressspinner";
-import { Chip } from 'primereact/chip';
 
 const AnalyticChartProductPriceByCategory = function(props) {
 
-  const { data, isLoading, isPending, isError } = fetchGetProductPriceByCategoryQuery(6);
+  const { data, isLoading, isPending, isError } = fetchGetProductPriceByCategoryQuery(props.category);
 
   if (isPending) {
     return <div>Loading...</div>
@@ -20,12 +18,20 @@ const AnalyticChartProductPriceByCategory = function(props) {
 
   graphData.unshift(["Название", "Цена"])
 
+    const options = {
+      legend: "bottom",
+      hAxis: { title: "Дата" },
+      vAxis: { title: "Стоимость в руб." },
+    };
+
   return (
     <div className="text-center">
       <Chart
         chartType="PieChart"
         data={graphData}
         legendToggle
+        height='300px'
+        options={options}
       />
     </div>
   );

@@ -29,7 +29,6 @@ const AnalyticCategoryProductDataSales = function (props) {
   dataGraph.unshift(["Дата", "Сумма в руб."])
 
   const options = {
-    curveType: "function",
     legend: "none",
     hAxis: { title: "Дата" },
     vAxis: { title: "Стоимость в руб." },

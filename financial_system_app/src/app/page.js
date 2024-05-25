@@ -1,11 +1,11 @@
-import AnalyticChartProductPriceByCategory from "@/components/analytics/proudct/AnalyticChartProductPriceByCategory";
 import {
   AnalyticCustomerCountCard
 } from "@/components/analytics/customer"
 
 import {
   AnalyticProductsSaleCountCard,
-  AnalyticProductTopTable
+  AnalyticProductTopTable,
+  AnalyticProductPriceByCategoryCard,
 } from "@/components/analytics/proudct"
 
 import {
@@ -54,9 +54,7 @@ const Home = function() {
           <AnalyticProductTopTable/>
         </div>
         <div className="col-5">
-          <Card title="Цены товаров по категориям">
-            <AnalyticChartProductPriceByCategory/>
-          </Card>
+          <AnalyticProductPriceByCategoryCard/>
         </div>
       </div>
     </div>
