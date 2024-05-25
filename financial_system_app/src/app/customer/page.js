@@ -1,28 +1,10 @@
 "use client"
 
-import AnalyticChartProductPriceByCategory from "@/components/analytics/proudct/AnalyticChartProductPriceByCategory";
-import {
-  AnalyticCustomerCountCard
-} from "@/components/analytics/customer"
-
-import {
-  AnalyticProductsSaleCountCard,
-  AnalyticProductTopTable
-} from "@/components/analytics/proudct"
-
-import {
-  AnalyticOrderCountCard
-} from "@/components/analytics/order"
-
-import {
-  AnalyticSupplyCountCard
-} from "@/components/analytics/supply"
-
-import {Card} from "primereact/card";
 import AnalyticCustomerPurchasesCard from "@/components/analytics/customer/AnalyticCustomerPurchasesCard";
 import AnaliticCustomerPurchasesTable from "@/components/analytics/customer/AnaliticCustomerPurchasesTable";
-import {AnalyticCategoryProductTable} from "@/components/analytics/category";
-import {Divider} from "primereact/divider";
+import {
+  AnalyticCustomerInformationTable
+} from "@/components/analytics/customer"
 
 
   const years = [
@@ -40,18 +22,20 @@ const Home = function() {
         </div>
         <div className="grid">
 
-          <div className='col-7'>
-            <AnalyticCustomerPurchasesCard category={6} is_sum={'1'}/>
-          </div>
-          <div className='col-5'>
-            <AnaliticCustomerPurchasesTable category={6}/>
-          </div>
-          <br/>
+          {/*<div className='col-7'>*/}
+          {/*  <AnalyticCustomerPurchasesCard category={6} is_sum={'1'}/>*/}
+          {/*</div>*/}
+          {/*<div className='col-5'>*/}
+          {/*  <AnaliticCustomerPurchasesTable category={6}/>*/}
+          {/*</div>*/}
           <div className='col-7'>
             <AnalyticCustomerPurchasesCard category={4} is_sum={'0'}/>
           </div>
           <div className='col-5'>
             <AnaliticCustomerPurchasesTable category={4}/>
+          </div>
+          <div className='col-12'>
+            <AnalyticCustomerInformationTable/>
           </div>
         </div>
       </div>
