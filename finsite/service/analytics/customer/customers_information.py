@@ -5,6 +5,7 @@ from finsite.models import *
 
 
 def customers_information():
+    #Доработать подсчет общего количества заказов и общей принесенной суммы
     return (
         Customer.objects
         .annotate(
