@@ -1,10 +1,10 @@
 import axios from "axios";
 import {useQuery} from "@tanstack/react-query";
-import {fetchGetProductPriceByCategory} from "@/hooks/api/analytics/useGetProductPriceByCategory";
+import {BASE_URL} from '@/hooks/api'
 
 const fetchProductSaleCountByYear = async function (year) {
   const res = await axios.get(
-    `http://127.0.0.1:8000/api/products/analytics/products_by_year/`,
+    `${BASE_URL}/products/analytics/products_by_year/`,
     {
       params: {
         year: year,

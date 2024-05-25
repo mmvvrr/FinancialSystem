@@ -8,8 +8,8 @@ const SideMenuProfile = function () {
       <Avatar image="https://primefaces.org/cdn/primereact/images/avatar/amyelsner.png" className="mr-2"
               shape="circle" size="xlarge"/>
       <div className="flex flex-column align">
-        <span className="font-bold">Amy Elsner</span>
-        <span className="text-sm">Agent</span>
+        <span className="font-bold">Елена Никитина</span>
+        <span className="text-sm">Аналитик</span>
       </div>
     </button>
   );

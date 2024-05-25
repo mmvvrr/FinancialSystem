@@ -1,9 +1,10 @@
 import axios from "axios";
 import {useQuery} from "@tanstack/react-query";
+import {BASE_URL} from '@/hooks/api'
 
 const fetchCustomerPurchases = async function (category, is_sum) {
   const res = await axios.get(
-    `http://127.0.0.1:8000/api/customers/analytics/customer_purchases/`,
+    `${BASE_URL}/customers/analytics/customer_purchases/`,
       {
         params: {
           category: category,

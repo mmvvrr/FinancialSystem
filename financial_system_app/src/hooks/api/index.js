@@ -1,5 +1,5 @@
-import useGetProductPriceByCategory from "@/hooks/api/analytics/useGetProductPriceByCategory";
+const BASE_URL = 'http://127.0.0.1:8000/api'
 
-export default {
-  useGetProductPriceByCategory
+export {
+  BASE_URL
 }

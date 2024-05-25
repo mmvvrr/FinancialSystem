@@ -1,9 +1,10 @@
 import axios from "axios";
 import {useQuery} from "@tanstack/react-query";
+import {BASE_URL} from "@/hooks/api";
 
 
 const fetchCategoryOrderCount = async function (category) {
-  const res = await axios.get(`http://127.0.0.1:8000/api/categories/${category}/analytics/category_order_count/`);
+  const res = await axios.get(`${BASE_URL}/categories/${category}/analytics/category_order_count/`);
   return res.data
 }
 

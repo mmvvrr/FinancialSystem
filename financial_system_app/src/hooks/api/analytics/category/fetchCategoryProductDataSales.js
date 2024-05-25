@@ -1,10 +1,11 @@
 import axios from "axios";
 import {useQuery} from "@tanstack/react-query";
+import {BASE_URL} from "@/hooks/api";
 
 
 const fetchCategoryProductionSalesData = async function (product, args) {
   const res = await axios.get(
-    `http://127.0.0.1:8000/api/products/${product}/analytics/product_data_sales`,
+    `${BASE_URL}/products/${product}/analytics/product_data_sales`,
     {
       params: {
         to_date: args.toDate,
