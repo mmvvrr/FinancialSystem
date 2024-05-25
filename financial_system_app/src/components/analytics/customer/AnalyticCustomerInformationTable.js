@@ -10,8 +10,8 @@ const AnalyticCustomerInformationTable = function () {
       <Column field="Дата рождения" header="Дата рождения"></Column>
       <Column field="Телефон" header="Телефон"></Column>
       <Column field="Почта" header="Почта"></Column>
-      <Column field="Кол-во покупок" header="Кол-во покупок"></Column>
-      <Column field="Сумма покупок" header="Сумма покупок"></Column>
+      <Column field="Кол-во заказов" header="Кол-во покупок"></Column>
+      <Column field="Сумма заказов" header="Сумма покупок"></Column>
     </DataTable>
   )
 }

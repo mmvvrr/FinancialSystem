@@ -7,6 +7,7 @@ from finsite.models import Customer
 import django_filters.rest_framework
 from finsite.service.analytics.customer_count import customer_count
 from finsite.service.analytics.customer_purchases import customer_purchases
+from finsite.service.analytics.customer import *
 
 
 class CustomerViewSet(viewsets.ModelViewSet):
@@ -28,5 +29,12 @@ class CustomerViewSet(viewsets.ModelViewSet):
         return Response(
             {"customers_purchases": customer_purchases(category=request.query_params.getlist('category', '0'),
                                                        is_sum=request.GET.get('is_sum', '1'))},
+            status=status.HTTP_200_OK
+        )
+
+    @action(detail=False, methods=['get'], url_path='analytics/customers_information')
+    def customers_information(self, request, pk=None, *args, **kwargs):
+        return Response(
+            {"customers_purchases": customers_information()[:100]},
             status=status.HTTP_200_OK
         )
