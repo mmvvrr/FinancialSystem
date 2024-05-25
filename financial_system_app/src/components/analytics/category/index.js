@@ -8,6 +8,10 @@ import AnalyticCategoryCustomerCountCard from "@/components/analytics/category/A
 import AnalyticCategoryProductPriceHistoryChart
   from "@/components/analytics/category/AnalyticCategoryProductPriceHistoryChart";
 import AnalyticCategoryProductPriceHistoryCard from "./AnalyticCategoryProductPriceHistoryCard"
+import AnalyticCategoryProductDataSalesChart
+  from "@/components/analytics/category/AnalyticCategoryProductDataSalesChart";
+import AnalyticCategoryProductDataSalesCard
+  from "@/components/analytics/category/AnalyticCategoryProductDataSalesCard";
 
 
 export {
@@ -19,4 +23,6 @@ export {
   AnalyticCategoryCustomerCountCard,
   AnalyticCategoryProductPriceHistoryChart,
   AnalyticCategoryProductPriceHistoryCard,
+  AnalyticCategoryProductDataSalesCard,
+  AnalyticCategoryProductDataSalesChart,
 }

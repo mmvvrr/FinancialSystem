@@ -7,8 +7,8 @@ import {
   AnalyticCategoryProductCountSale,
   AnalyticCategorySupplyCount,
   AnalyticCategoryCustomerCountCard,
-  AnalyticCategoryProductPriceHistoryChart,
   AnalyticCategoryProductPriceHistoryCard,
+  AnalyticCategoryProductDataSalesCard,
 } from "@/components/analytics/category/"
 
 
@@ -57,13 +57,12 @@ export default function Page({ params }) {
           <AnalyticCategoryProductTable category_id={params.id}/>
         </div>
 
-        <div className='col-7'>
+        <div className='col-6'>
           <AnalyticCategoryProductPriceHistoryCard categoryId={params.id}/>
-          {/*<AnalyticCategoryProductCountSaleChart/>*/}
         </div>
 
-        <div className='col-5'>
-
+        <div className='col-6'>
+          <AnalyticCategoryProductDataSalesCard categoryId={params.id}/>
         </div>
 
       </div>

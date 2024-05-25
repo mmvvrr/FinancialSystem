@@ -2,4 +2,3 @@ from .category_order_count import category_order_count
 from .category_product_information import category_product_information
 from .category_supply_count import category_supply_count
 from .category_customer_count import category_customer_count
-from .category_product_data_sales import category_product_data_sales

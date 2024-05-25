@@ -12,6 +12,7 @@ from finsite.service.analytics.product_price_history import product_price_histor
 from finsite.service.analytics.product_orders import product_orders
 from finsite.service.analytics.products_by_year import products_by_year
 from finsite.service.analytics.products_top import products_top
+from finsite.service.analytics.product import *
 
 
 class ProductViewSet(viewsets.ModelViewSet):
@@ -68,5 +69,22 @@ class ProductViewSet(viewsets.ModelViewSet):
         return Response(
             {"products_top": products_top(count=request.GET.get('count', 10),
                                           category=request.query_params.getlist('category[]', '0'))},
+            status=status.HTTP_200_OK
+        )
+
+
+    @action(detail=True, methods=['get'], url_path='analytics/product_data_sales')
+    def product_data_sales(self, request, *args, **kwargs):
+
+        product = kwargs['pk']
+        to_date = request.GET.get('to_date')
+        from_date = request.GET.get('from_date')
+
+        return Response(
+            {"product_data_sales": product_data_sales(
+                product,
+                to_date=to_date,
+                from_date=from_date
+            )},
             status=status.HTTP_200_OK
         )

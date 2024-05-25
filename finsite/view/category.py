@@ -63,21 +63,3 @@ class CategoryViewSet(viewsets.ModelViewSet):
             status=status.HTTP_200_OK
         )
 
-    @action(detail=True, methods=['get'], url_path='analytics/category_product_data_sales')
-    def category_product_data_sales(self, request, *args, **kwargs):
-
-        category = kwargs['pk']
-        product = request.GET.get('product')
-        to_date = request.GET.get('to_date')
-        from_date = request.GET.get('from_date')
-
-        return Response(
-            {"category_product_data_sales": category_product_data_sales(
-                kwargs["pk"],
-                product,
-                to_date=to_date,
-                from_date=from_date
-            )},
-            status=status.HTTP_200_OK
-        )
-

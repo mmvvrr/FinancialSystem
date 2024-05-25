@@ -5,14 +5,13 @@ from datetime import datetime
 from finsite.models import OrderLine
 
 
-def category_product_data_sales(category_id, product_id, **kwargs):
+def product_data_sales(product_id, **kwargs):
     to_date = kwargs.get("to_date")
     from_date = kwargs.get("from_date")
 
     queryset = (
         OrderLine.objects
         .filter(product=product_id)
-        .filter(product__category_id=category_id)
         .annotate(day=TruncDay('created_at'))
         .values('day')
     )
