@@ -23,8 +23,6 @@ const AnalyticCategoryCountOrderCard = function (props) {
     return <div>Error</div>
   }
 
-  console.log(data)
-
   return (
     <Card header={header}>
       <div>
