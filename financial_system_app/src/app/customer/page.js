@@ -33,29 +33,29 @@ import {Divider} from "primereact/divider";
 const Home = function() {
 
   return (
-      <div className="px-5 py-4 w-full">
+    <div className="px-5 py-4 w-full">
       <div>
-          <div className='text-6xl'>
+        <div className='text-6xl'>
           Аналитика по покупателям
         </div>
-          <div className="grid">
+        <div className="grid">
 
-              <div className='col-7'>
-        <AnalyticCustomerPurchasesCard category={6} is_sum={'1'}/>
-              </div>
-              <div className='col-5'>
-          <AnaliticCustomerPurchasesTable category={6}/>
-              </div>
+          <div className='col-7'>
+            <AnalyticCustomerPurchasesCard category={6} is_sum={'1'}/>
+          </div>
+          <div className='col-5'>
+            <AnaliticCustomerPurchasesTable category={6}/>
+          </div>
           <br/>
-             <div className='col-7'>
-        <AnalyticCustomerPurchasesCard category={4} is_sum={'0'}/>
-             </div>
-                 <div className='col-5'>
-          <AnaliticCustomerPurchasesTable category={4}/>
-                 </div>
+          <div className='col-7'>
+            <AnalyticCustomerPurchasesCard category={4} is_sum={'0'}/>
+          </div>
+          <div className='col-5'>
+            <AnaliticCustomerPurchasesTable category={4}/>
+          </div>
+        </div>
       </div>
-      </div>
-      </div>
+    </div>
 
   );
 }

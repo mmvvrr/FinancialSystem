@@ -29,6 +29,7 @@ const AnalyticEmployeeSalariesChart = ({ category,  is_sum }) => {
         chartType="ScatterChart"
         data={graphData}
         legendToggle
+        height='400px'
       />
     </div>
       </Card>

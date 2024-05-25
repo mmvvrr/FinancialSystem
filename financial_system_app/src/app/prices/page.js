@@ -28,20 +28,26 @@ import AnalyticCustomerPurchasesCard from "@/components/analytics/customer/Analy
 const Home = function() {
 
   return (
-      <div>
-          <div className='text-6xl'>
-          Аналитика по покупателям
-        </div>
-          <div className='text-2xl'>
-          Покупатели с самой большой суммой покупок
-        </div>
-        <AnalyticCustomerPurchasesCard category={4} is_sum={'1'}/>
-          <br/>
-          <div className='text-2xl'>
-          Покупатели с самой большой суммой покупок
-        </div>
-        <AnalyticCustomerPurchasesCard category={4} is_sum={'0'}/>
+    <div className='w-full px-5 py-4'>
+      <div className='text-6xl'>
+        Аналитика по покупателям
       </div>
+      <div className='grid'>
+        <div className='col-12'>
+          <div className='text-2xl'>
+            Покупатели с самой большой суммой покупок
+          </div>
+          <AnalyticCustomerPurchasesCard category={4} is_sum={'1'}/>
+        </div>
+        <div className='col-12'>
+          <div className='text-2xl'>
+            Покупатели с самой большой суммой покупок
+          </div>
+          <AnalyticCustomerPurchasesCard category={4} is_sum={'0'}/>
+        </div>
+      </div>
+
+    </div>
 
   );
 }
