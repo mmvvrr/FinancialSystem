@@ -11,7 +11,7 @@ def category_product_information(category):
         .filter(category__in=list(Category.objects.filter(parent_id=category).values_list("id", flat=True)))
         .annotate(
             total_quantity=Count('order_lines__order', distinct=True),
-            total_amount=Round(Sum(F('order_lines__quantity') * F('order_lines__price__price')), 2)
+            total_amount=Round(Sum(F('order_lines__quantity') * F('order_lines__price__price'), distinct=True), 2)
         )
         .values('pk', 'name', 'total_quantity', 'total_amount')
     )

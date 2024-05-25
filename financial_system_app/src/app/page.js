@@ -33,7 +33,7 @@ const Home = function() {
         <div className='text-6xl'>
           Добро пожаловать в систему 👋
         </div>
-        <div>a
+        <div>
           Система предназначена для аналитики предприятия
         </div>
       </div>
@@ -58,11 +58,6 @@ const Home = function() {
             <AnalyticChartProductPriceByCategory/>
           </Card>
         </div>
-        {/*<div className="col-4">*/}
-        {/*  <Card title="Simple Card">*/}
-        {/*    <AnalyticChartProductPriceByCategory/>*/}
-        {/*  </Card>*/}
-        {/*</div>*/}
       </div>
     </div>
   );

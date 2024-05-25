@@ -68,7 +68,7 @@ class ProductViewSet(viewsets.ModelViewSet):
         print(request.query_params.getlist('years', ''))
         return Response(
             {"products_top": products_top(count=request.GET.get('count', 10),
-                                          category=request.query_params.getlist('category[]', '0'))},
+                                          category=request.query_params.getlist('category[]'))},
             status=status.HTTP_200_OK
         )
 
