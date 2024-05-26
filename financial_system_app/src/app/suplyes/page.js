@@ -1,6 +1,17 @@
-import {AnalyticSupplyDataTable} from "@/components/analytics/supply"
+"use client"
+
+import {AnalyticSupplyDataTable, AnalyticSupplyDetailSidebar} from "@/components/analytics/supply"
+import {useState} from "react";
 
 const Home = function() {
+
+  const [visible, setVisible] = useState(false);
+
+
+  const openSupplyDetail = function (supplyId) {
+    console.log(supplyId)
+    setVisible(true);
+  }
 
   return (
     <div className="px-5 py-4 w-full">
@@ -12,9 +23,10 @@ const Home = function() {
       </div>
       <div className="grid">
         <div className='col-7'>
-          <AnalyticSupplyDataTable/>
+          <AnalyticSupplyDataTable openSupplyDetail={openSupplyDetail}/>
         </div>
       </div>
+      <AnalyticSupplyDetailSidebar visible={visible} setVisible={setVisible}/>
     </div>
   );
 }

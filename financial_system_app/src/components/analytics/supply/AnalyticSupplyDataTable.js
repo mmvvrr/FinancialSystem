@@ -8,7 +8,7 @@ import {useFormattedDateRu} from "@/hooks/date";
 import {Button} from "primereact/button";
 
 
-const AnalyticSupplyDataTable = function (openSupplyDetail) {
+const AnalyticSupplyDataTable = function ({openSupplyDetail}) {
 
   const {data, isPending, isError, error} = fetchSupplyDataListQuery();
 
@@ -27,7 +27,7 @@ const AnalyticSupplyDataTable = function (openSupplyDetail) {
   }
 
   const sidebarBtn = (supply) => {
-    return <Button onClick={() => openSupplyDetail(supply)} icon='pi pi-search' rounded text outlined></Button>;
+    return <Button onClick={() => openSupplyDetail(supply.supply_id)} icon='pi pi-search' rounded text outlined></Button>;
   };
 
   return (
