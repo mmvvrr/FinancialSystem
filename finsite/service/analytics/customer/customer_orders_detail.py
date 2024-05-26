@@ -12,6 +12,7 @@ def customer_orders_detail(customer):
         date=F('created_at'),
         products=ArrayAgg(
             JSONObject(
+                product_pk=F('order_lines__product__pk'),
                 name=F('order_lines__product__name'),
                 quantity=F('order_lines__quantity'),
                 unit_price=F('order_lines__price__price'),
@@ -19,7 +20,7 @@ def customer_orders_detail(customer):
             )
         )
     ).values(
-        'total_sum_amount', 'total_quantity', 'date', 'products'
+        'pk', 'total_sum_amount', 'total_quantity', 'date', 'products'
     )
 
     customer = Customer.objects.filter(id=customer).annotate(
