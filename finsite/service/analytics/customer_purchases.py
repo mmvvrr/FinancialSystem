@@ -22,7 +22,7 @@ def customer_purchases(**kwargs):
         .values('order__customer__name', 'order__customer__surname', 'order__customer__patronymic', )
         .annotate(total_quantity=Sum('quantity', distinct=True))
         #.annotate(data=JSONObject(product=F("product__name")))
-        .annotate(total_sum=Sum(F('quantity') * F('price'), distinct=True))
+        .annotate(total_sum=Sum(F('quantity') * F('price__price'), distinct=True))
         .order_by(param)[:5]
     )
 
