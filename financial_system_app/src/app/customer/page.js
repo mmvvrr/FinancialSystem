@@ -15,13 +15,6 @@ const Home = function() {
           Аналитика по покупателям
         </div>
         <div className="grid">
-
-          {/*<div className='col-7'>*/}
-          {/*  <AnalyticCustomerPurchasesCard category={6} is_sum={'1'}/>*/}
-          {/*</div>*/}
-          {/*<div className='col-5'>*/}
-          {/*  <AnaliticCustomerPurchasesTable category={6}/>*/}
-          {/*</div>*/}
           <div className='col-7'>
             <AnalyticCustomerPurchasesCard category={4} is_sum={'0'}/>
           </div>

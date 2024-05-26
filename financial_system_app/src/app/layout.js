@@ -8,6 +8,8 @@ import ReactQueryProvider from "@/components/ReactQueryProvider";
 import {Splitter, SplitterPanel} from "primereact/splitter";
 import {SideMenuContainer} from "@/components/layout/SideMenu"
 import {ScrollPanel} from "primereact/scrollpanel";
+import {Suspense} from "react";
+import Loading from "@/app/loading";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,9 +31,11 @@ export default function RootLayout({ children }) {
         <SplitterPanel minSize={85} size={85}>
           <div className='w-full'>
             <ScrollPanel style={{height: '99vh'}}>
-              <ReactQueryProvider>
-                {children}
-              </ReactQueryProvider>
+              <Suspense fallback={<Loading/>}>
+                <ReactQueryProvider>
+                  {children}
+                </ReactQueryProvider>
+              </Suspense>
             </ScrollPanel>
           </div>
         </SplitterPanel>
