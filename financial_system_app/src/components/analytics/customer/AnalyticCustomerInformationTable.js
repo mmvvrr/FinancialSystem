@@ -1,11 +1,11 @@
 import {DataTable} from "primereact/datatable";
 import {Column} from "primereact/column";
+import {Button} from "primereact/button"
 import {fetchCustomersDataQuery} from "@/hooks/api/analytics/customer/fetchCustomersData";
-import useSplitNameToFullName from "@/hooks/customer/useSplitNameToFullName";
-import {func} from "prop-types";
+import useSplitNameToFullName from "@/hooks/customer/useSplitNameToFullName";;
 
 
-const AnalyticCustomerInformationTable = function () {
+const AnalyticCustomerInformationTable = function ({openCustomerDetail}) {
 
   const {data, isPending, isError, error} = fetchCustomersDataQuery();
 
@@ -28,6 +28,10 @@ const AnalyticCustomerInformationTable = function () {
     return customer?.total_amount_order?.toLocaleString('ru-RU') || "empty"
   }
 
+  const sidebarBtn = (customer) => {
+    return <Button onClick={() => openCustomerDetail(customer.pk)} icon='pi pi-search' rounded text outlined></Button>;
+  };
+
 
   if (isPending) return (
     <span>Загрузка...</span>
@@ -42,6 +46,7 @@ const AnalyticCustomerInformationTable = function () {
       <Column field="email" header="Почта"></Column>
       <Column field="total_quantity_order" header="Кол-во покупок"></Column>
       <Column field="total_amount_order" header="Сумма покупок" body={formattedTotalSumSales}></Column>
+      <Column field="sidebarBtn" header="Сумма покупок" body={sidebarBtn}></Column>
     </DataTable>
   )
 }

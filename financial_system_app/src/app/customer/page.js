@@ -3,10 +3,20 @@
 import AnalyticCustomerPurchasesCard from "@/components/analytics/customer/AnalyticCustomerPurchasesCard";
 import AnaliticCustomerPurchasesTable from "@/components/analytics/customer/AnaliticCustomerPurchasesTable";
 import {
-  AnalyticCustomerInformationTable
+  AnalyticCustomerInformationTable,
+  AnalyticCustomerDetailSidebar,
 } from "@/components/analytics/customer"
+import {useState} from "react";
 
 const Home = function() {
+
+  const [visible, setVisible] = useState(false);
+  const [customerId, setCustomerId] = useState(null);
+
+  const openCustomerDetail = function (customer) {
+    setCustomerId(customer);
+    setVisible(true);
+  }
 
   return (
     <div className="px-5 py-4 w-full">
@@ -22,10 +32,11 @@ const Home = function() {
             <AnaliticCustomerPurchasesTable category={4}/>
           </div>
           <div className='col-12'>
-            <AnalyticCustomerInformationTable/>
+            <AnalyticCustomerInformationTable openCustomerDetail={openCustomerDetail}/>
           </div>
         </div>
       </div>
+      <AnalyticCustomerDetailSidebar visible={visible} setVisible={setVisible} customerId={customerId}/>
     </div>
 
   );

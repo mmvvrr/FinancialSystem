@@ -38,3 +38,10 @@ class CustomerViewSet(viewsets.ModelViewSet):
             {"result": customers_information()},
             status=status.HTTP_200_OK
         )
+
+    @action(detail=True, methods=['get'], url_path='analytics/customer_orders_detail')
+    def customer_orders_detail(self, request, *args, **kwargs):
+        return Response(
+            {"result": customer_orders_detail(kwargs["pk"])},
+            status=status.HTTP_200_OK
+        )
