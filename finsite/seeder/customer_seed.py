@@ -24,7 +24,7 @@ def _set_provider():
         patronymic=patronymic,
         phone=fake.phone_number(),
         email=fake.email(),
-        date_birth=fake.date_of_birth(),
+        date_birth=fake.date_of_birth(minimum_age=20, maximum_age=70),
         gender=gender,
     )
 
