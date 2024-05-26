@@ -24,6 +24,7 @@ const SideMenuPanel = function () {
       {
         label: 'Главная',
         icon: 'pi pi-home',
+        className: 'text-3xl',
         command: () => {
           router.push('/');
         }
@@ -33,13 +34,6 @@ const SideMenuPanel = function () {
         icon: 'pi pi-user',
         command: () => {
           router.push('/employee');
-        }
-      },
-      {
-        label: 'Аналитика цен',
-        icon: 'pi pi-dollar',
-        command: () => {
-          router.push('/prices');
         }
       },
       {
