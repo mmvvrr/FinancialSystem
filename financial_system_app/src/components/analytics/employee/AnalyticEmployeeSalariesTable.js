@@ -19,14 +19,14 @@ const AnalyticEmployeeSalariesChart = ({ category,  is_sum }) => {
     return <span>Error</span>
   }
     const formatingTotalQuantity = function (employee) {
-    return employee.salary.toLocaleString('ru-RU')+" руб."
+    return (employee.salary*24).toLocaleString('ru-RU')+" руб."
   }
     const formatingFullName = function (employee) {
     return employee.surname+" "+employee.name+" "+employee.patronymic
   }
 
   const formatingTotalAmount = function (customer) {
-    return customer.total_sum.toLocaleString('ru-RU')+" руб."
+    return (customer.total_sum*24).toLocaleString('ru-RU')+" руб."
   }
   let graphData = data["employee_salaries"].map(employee =>
       [employee.surname+" "+employee.name+" "+employee.patronymic, employee.salary])

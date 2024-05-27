@@ -18,7 +18,7 @@ const AnalyticEmployeeSalariesChart = ({ category,  is_sum }) => {
   }
 
   let graphData = data["employee_salaries"].map(employee =>
-      [employee.name+" "+employee.patronymic, employee.salary])
+      [employee.surname+" "+employee.name, employee.salary*24])
 
   const options = {
     legend: 'none'
