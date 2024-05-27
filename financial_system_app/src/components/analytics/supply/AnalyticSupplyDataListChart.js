@@ -29,7 +29,7 @@ const AnalyticSupplyDataListChart = function () {
   return(
     <Card title='Сумма доставок по дате'>
       <Chart
-        chartType="LineChart"
+        chartType="SteppedAreaChart"
         data={dataGraph}
         options={options}
         height='60vh'
