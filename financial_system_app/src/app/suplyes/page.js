@@ -29,6 +29,9 @@ const Home = function() {
         <div className='col-5'>
           <AnalyticSupplyDataListChart/>
         </div>
+        <div className='col-12'>
+          <AnalyticSupplyDataListChart/>
+        </div>
       </div>
       <AnalyticSupplyDetailSidebar visible={visible} setVisible={setVisible} supplyId={supplyId}/>
     </div>
