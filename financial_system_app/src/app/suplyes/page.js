@@ -1,6 +1,6 @@
 "use client"
 
-import {AnalyticSupplyDataTable, AnalyticSupplyDetailSidebar} from "@/components/analytics/supply"
+import {AnalyticSupplyDataTable, AnalyticSupplyDetailSidebar, AnalyticSupplyDataListChart} from "@/components/analytics/supply"
 import {useState} from "react";
 
 const Home = function() {
@@ -25,6 +25,12 @@ const Home = function() {
       <div className="grid">
         <div className='col-7'>
           <AnalyticSupplyDataTable openSupplyDetail={openSupplyDetail}/>
+        </div>
+        <div className='col-5'>
+          <AnalyticSupplyDataListChart/>
+        </div>
+        <div className='col-12'>
+          <AnalyticSupplyDataListChart/>
         </div>
       </div>
       <AnalyticSupplyDetailSidebar visible={visible} setVisible={setVisible} supplyId={supplyId}/>
