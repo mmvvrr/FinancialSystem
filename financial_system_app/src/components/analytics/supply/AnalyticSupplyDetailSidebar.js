@@ -1,6 +1,4 @@
 import {Sidebar} from "primereact/sidebar";
-import {DataTable} from "primereact/datatable";
-import {Column} from "primereact/column";
 import AnalyticSupplyDetailTable from "./AnalyticSupplyDetailTable"
 
 
@@ -16,7 +14,7 @@ const AnalyticSupplyDetailSidebar = function ({visible, setVisible, supplyId}) {
 
   return (
     <Sidebar header={customHeader} visible={visible} onHide={() => setVisible(false)} className="w-full md:w-6">
-      <AnalyticSupplyDetailTable/>
+      <AnalyticSupplyDetailTable supplyId={supplyId}/>
     </Sidebar>
   )
 }

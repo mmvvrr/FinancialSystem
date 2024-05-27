@@ -10,10 +10,10 @@ from finsite.service.analytics.supply_count_by_year import supply_count_by_year
 from finsite.service.analytics.supply import *
 
 
-
 class SupplyViewSet(viewsets.ModelViewSet):
     queryset = Supply.objects.all()
     serializer_class = SupplySerializer
+
     #permission_classes = [permissions.IsAuthenticated]
     # filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
     # filterset_fields = ['name', 'surname', 'patronymic', 'email', 'date_birth', 'gender']
@@ -29,5 +29,12 @@ class SupplyViewSet(viewsets.ModelViewSet):
     def supply_data_list(self, request, pk=None, *args, **kwargs):
         return Response(
             {"result": supply_data_list()},
+            status=status.HTTP_200_OK
+        )
+
+    @action(detail=True, methods=['get'], url_path='analytics/supply_data_detail')
+    def supply_data_detail(self, request, *args, **kwargs):
+        return Response(
+            {"result": supply_data_detail(kwargs["pk"])},
             status=status.HTTP_200_OK
         )

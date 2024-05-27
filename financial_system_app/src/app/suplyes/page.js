@@ -6,10 +6,11 @@ import {useState} from "react";
 const Home = function() {
 
   const [visible, setVisible] = useState(false);
+  const [supplyId, setSupplyId] = useState(null);
 
 
   const openSupplyDetail = function (supplyId) {
-    console.log(supplyId)
+    setSupplyId(supplyId)
     setVisible(true);
   }
 
@@ -26,7 +27,7 @@ const Home = function() {
           <AnalyticSupplyDataTable openSupplyDetail={openSupplyDetail}/>
         </div>
       </div>
-      <AnalyticSupplyDetailSidebar visible={visible} setVisible={setVisible}/>
+      <AnalyticSupplyDetailSidebar visible={visible} setVisible={setVisible} supplyId={supplyId}/>
     </div>
   );
 }
