@@ -3,6 +3,7 @@ import AnalyticSupplyDataTable from "@/components/analytics/supply/AnalyticSuppl
 import AnalyticSupplyDetailSidebar from "./AnalyticSupplyDetailSidebar"
 import AnalyticSupplyDetailTable from "@/components/analytics/supply/AnalyticSupplyDetailTable";
 import AnalyticSupplyDataListChart from "@/components/analytics/supply/AnalyticSupplyDataListChart";
+import AnalyticSupplyDataListScatterChart from "@/components/analytics/supply/AnalyticSupplyDataListScatterChart";
 
 export {
   AnalyticSupplyCountCard,
@@ -10,4 +11,5 @@ export {
   AnalyticSupplyDetailSidebar,
   AnalyticSupplyDetailTable,
   AnalyticSupplyDataListChart,
+  AnalyticSupplyDataListScatterChart,
 }

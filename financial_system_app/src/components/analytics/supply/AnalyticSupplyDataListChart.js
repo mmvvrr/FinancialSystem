@@ -28,7 +28,7 @@ const AnalyticSupplyDataListChart = function () {
   };
 
   return(
-    <Card title='Сумма доставок по дате'>
+    <Card title='Динамика суммы поставок по дням'>
       <Chart
         chartType="SteppedAreaChart"
         data={dataGraph}

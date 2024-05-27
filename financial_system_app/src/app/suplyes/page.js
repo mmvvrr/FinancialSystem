@@ -1,6 +1,11 @@
 "use client"
 
-import {AnalyticSupplyDataTable, AnalyticSupplyDetailSidebar, AnalyticSupplyDataListChart} from "@/components/analytics/supply"
+import {
+  AnalyticSupplyDataTable,
+  AnalyticSupplyDetailSidebar,
+  AnalyticSupplyDataListChart,
+  AnalyticSupplyDataListScatterChart,
+} from "@/components/analytics/supply"
 import {useState} from "react";
 
 const Home = function() {
@@ -27,7 +32,7 @@ const Home = function() {
           <AnalyticSupplyDataTable openSupplyDetail={openSupplyDetail}/>
         </div>
         <div className='col-5'>
-          <AnalyticSupplyDataListChart/>
+          <AnalyticSupplyDataListScatterChart/>
         </div>
         <div className='col-12'>
           <AnalyticSupplyDataListChart/>
