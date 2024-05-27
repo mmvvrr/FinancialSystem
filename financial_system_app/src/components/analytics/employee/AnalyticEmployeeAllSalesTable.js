@@ -34,9 +34,9 @@ const options = {
   }
   return (
 <Card title='Детализация по графику'>
-      <DataTable value={data["employee_all_sales"]} stripedRows tableStyle={{ minWidth: '50rem' }} scrollable scrollHeight="40vh">
-        <Column field="name" header="ФИО" style={{width: '50%'}} body={formatingFullName}></Column>
-        <Column field="salary" header="Общее число продаж" style={{width: '25%'}} body={formatingTotalQuantity}></Column>
+      <DataTable value={data["employee_all_sales"]} stripedRows tableStyle={{ minWidth: '50rem' }} scrollable scrollHeight="70vh">
+        <Column field="name" header="ФИО" body={formatingFullName}></Column>
+        <Column field="salary" header="Общее число продаж" body={formatingTotalQuantity}></Column>
       </DataTable>
     </Card>
   );

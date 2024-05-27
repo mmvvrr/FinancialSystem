@@ -35,7 +35,7 @@ const AnalyticEmployeeSalariesChart = ({ category,  is_sum }) => {
 
   return (
     <Card title='Детализация по графику'>
-      <DataTable value={data["employee_salaries"]} stripedRows tableStyle={{ minWidth: '50rem' }} scrollable scrollHeight="40vh">
+      <DataTable value={data["employee_salaries"]} stripedRows tableStyle={{ minWidth: '50rem' }} scrollable scrollHeight="70vh">
         <Column field="name" header="ФИО" style={{width: '50%'}} body={formatingFullName}></Column>
         <Column field="salary" header="Зарплата в месяц" style={{width: '25%'}} body={formatingTotalQuantity}></Column>
       </DataTable>

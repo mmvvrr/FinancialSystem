@@ -31,7 +31,7 @@ const options = {
       <Chart
         chartType="BarChart"
         data={graphData}
-        height='900px'
+        height='70vh'
         legendToggle
         options={options}
       />

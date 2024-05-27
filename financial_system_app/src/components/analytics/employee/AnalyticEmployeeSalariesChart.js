@@ -27,16 +27,16 @@ const AnalyticEmployeeSalariesChart = ({ category,  is_sum }) => {
   graphData.unshift(["ФИО", "Зарплата"])
 
   return (
-      <Card title='График зарплаты сотрудников (в месяц)'>
-    <div className="text-center">
-      <Chart
-        chartType="BarChart"
-        data={graphData}
-        height='900px'
-        options={options}
-      />
-    </div>
-      </Card>
+    <Card title='График зарплаты сотрудников (в месяц)'>
+      <div className="text-center">
+        <Chart
+          chartType="BarChart"
+          data={graphData}
+          options={options}
+          height='70vh'
+        />
+      </div>
+    </Card>
   );
 }
 
