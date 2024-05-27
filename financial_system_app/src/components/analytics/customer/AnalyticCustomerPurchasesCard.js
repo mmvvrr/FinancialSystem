@@ -28,7 +28,7 @@ const AnalyticCustomerPurchasesCard = ({ category,  is_sum }) => {
       <Chart
         chartType="ColumnChart"
         data={graphData}
-        legendToggle
+        height='38vh'
       />
     </div>
       </Card>
