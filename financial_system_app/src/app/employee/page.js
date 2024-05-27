@@ -1,5 +1,8 @@
 import AnalyticCustomerPurchasesCard from "@/components/analytics/customer/AnalyticCustomerPurchasesCard";
 import AnalyticEmployeeSalariesChart from "@/components/analytics/employee/AnalyticEmployeeSalariesChart";
+import AnalyticEmployeeAllSalesChart from "@/components/analytics/employee/AnalyticEmployeeAllSalesChart";
+import AnalyticEmployeeSalariesTable from "@/components/analytics/employee/AnalyticEmployeeSalariesTable";
+import AnalyticEmployeeAllSalesTable from "@/components/analytics/employee/AnalyticEmployeeAllSalesTable";
 
 
   const years = [
@@ -15,17 +18,17 @@ const Home = function() {
         Аналитика по сотрудникам
       </div>
       <div className='grid'>
-        <div className='text-2xl'>
-          Покупатели с самой большой суммой покупок
-        </div>
-        <div className='col-12'>
+        <div className='col-7'>
           <AnalyticEmployeeSalariesChart/>
         </div>
-        <div className='col-12'>
-          <div className='text-2xl'>
-            Покупатели с самой большой суммой покупок
-          </div>
-          <AnalyticCustomerPurchasesCard category={4} is_sum={'0'}/>
+        <div className='col-5'>
+          <AnalyticEmployeeSalariesTable/>
+        </div>
+        <div className='col-7'>
+          <AnalyticEmployeeAllSalesChart/>
+        </div>
+        <div className='col-5'>
+          <AnalyticEmployeeAllSalesTable/>
         </div>
       </div>
     </div>

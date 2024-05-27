@@ -19,7 +19,7 @@ const AnalyticEmployeeSalariesChart = ({ category,  is_sum }) => {
     return <span>Error</span>
   }
     const formatingTotalQuantity = function (employee) {
-    return employee.salary.toLocaleString('ru-RU')
+    return employee.salary.toLocaleString('ru-RU')+" руб."
   }
     const formatingFullName = function (employee) {
     return employee.surname+" "+employee.name+" "+employee.patronymic
@@ -37,7 +37,7 @@ const AnalyticEmployeeSalariesChart = ({ category,  is_sum }) => {
     <Card title='Детализация по графику'>
       <DataTable value={data["employee_salaries"]} stripedRows tableStyle={{ minWidth: '50rem' }} scrollable scrollHeight="40vh">
         <Column field="name" header="ФИО" style={{width: '50%'}} body={formatingFullName}></Column>
-        <Column field="salary" header="Приобретено товаров" style={{width: '25%'}} body={formatingTotalQuantity}></Column>
+        <Column field="salary" header="Зарплата в месяц" style={{width: '25%'}} body={formatingTotalQuantity}></Column>
       </DataTable>
     </Card>
   )

@@ -18,17 +18,22 @@ const AnalyticEmployeeAllSalesChart = ({ category,  is_sum }) => {
   }
 
   let graphData = data["employee_all_sales"].map(employee =>
-      [employee.surname+" "+employee.name+" "+employee.patronymic, employee.sales])
+      [employee.surname+" "+employee.name, employee.sales[0]])
 
   graphData.unshift(["ФИО", "Зарплата"])
-
+const options = {
+    legend: 'none',
+    colors: ['green']
+  }
   return (
-      <Card title='График зарплаты сотрудников (в месяц)'>
+      <Card title='График общих продаж сотрудников'>
     <div className="text-center">
       <Chart
-        chartType="Scatter"
+        chartType="BarChart"
         data={graphData}
+        height='900px'
         legendToggle
+        options={options}
       />
     </div>
       </Card>
