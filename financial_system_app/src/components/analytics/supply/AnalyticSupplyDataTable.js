@@ -33,10 +33,10 @@ const AnalyticSupplyDataTable = function ({openSupplyDetail}) {
   return (
     <Card title='Список поставок'>
       <DataTable value={data} stripedRows tableStyle={{minWidth: '50rem'}} paginator rows={5} rowsPerPageOptions={[5, 10, 25, 50]}>
-        <Column field="supply_id" header="Номер поставки" style={{width: '15%'}}></Column>
-        <Column field="delivery_date" header="Дата" style={{width: '15%'}} body={formatingDate}></Column>
+        <Column field="supply_id" header="Номер поставки" style={{width: '15%'}} sortable></Column>
+        <Column field="delivery_date" header="Дата" style={{width: '15%'}} body={formatingDate} sortable></Column>
         <Column field="storage_name" header="Склад" style={{width: '45%'}}></Column>
-        <Column field="total_cost" header="Общая стоимость поставки руб." style={{width: '15%'}} body={formatingTotalCoast}></Column>
+        <Column field="total_cost" header="Общая стоимость поставки руб." style={{width: '15%'}} body={formatingTotalCoast} sortable></Column>
         <Column field="sidebarBtn" header="Действие" style={{width: '10%'}} body={sidebarBtn}></Column>
       </DataTable>
     </Card>
