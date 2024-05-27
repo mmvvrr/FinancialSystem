@@ -1,3 +1,4 @@
+"use client"
 import {
   AnalyticCustomerCountCard
 } from "@/components/analytics/customer"

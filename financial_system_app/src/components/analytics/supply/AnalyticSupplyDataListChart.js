@@ -19,6 +19,7 @@ const AnalyticSupplyDataListChart = function () {
 
   const options = {
     legend: 'none',
+    color: ['green'],
     axes: {
       x: {
         0: {side: 'top'}
