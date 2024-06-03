@@ -32,6 +32,7 @@
   pip install numpy
   pip install Faker
   pip install django-cors-headers
+  pip install djoser djangorestframework-simplejwt
   
   python3 manage.py makemigrations
   python3 manage.py migrate

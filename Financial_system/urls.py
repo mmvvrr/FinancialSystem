@@ -18,6 +18,7 @@ from django.contrib import admin
 from rest_framework import routers
 from django.urls import path, include
 from finsite.view import *
+from finsite.views import LogoutView
 
 router = routers.DefaultRouter()
 router.register(r'products', ProductViewSet)
@@ -35,4 +36,8 @@ urlpatterns = [
     path('', include("finsite.urls")),
     path('api/', include(router.urls)),
     path('api-auth/', include('rest_framework.urls')),
+
+    path("auth/", include("djoser.urls")),
+    path("auth/", include("djoser.urls.jwt")),
+    path("auth/logout/", LogoutView.as_view()),
 ]
