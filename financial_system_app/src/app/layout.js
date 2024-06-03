@@ -19,6 +19,7 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+
   return (
     <html lang="en" style={{'font-size': '14px'}}>
       <body className='mx-0 my-0'>
@@ -28,7 +29,7 @@ export default function RootLayout({ children }) {
             <SideMenuContainer/>
           </ReactQueryProvider>
         </SplitterPanel>
-        <SplitterPanel minSize={85} size={85}>
+        <SplitterPanel minSize={85} size={100}>
           <div className='w-full'>
             <ScrollPanel style={{height: '99vh'}}>
               <Suspense fallback={<Loading/>}>

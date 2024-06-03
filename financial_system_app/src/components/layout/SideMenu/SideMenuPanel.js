@@ -54,6 +54,13 @@ const SideMenuPanel = function () {
         command: () => {
           router.push('/suplyes');
         }
+      },
+      {
+        label: 'Выход',
+        icon: 'pi pi-times-circle',
+        command: () => {
+          router.push('/login');
+        }
       }
     ])
   }, [data])

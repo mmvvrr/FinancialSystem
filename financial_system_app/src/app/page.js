@@ -18,6 +18,8 @@ import {
 } from "@/components/analytics/supply"
 
 import {Card} from "primereact/card";
+import {redirect} from "next/navigation";
+import useCheckUser from "@/hooks/auth/useCheckUser";
 
 
   const years = [
@@ -26,6 +28,8 @@ import {Card} from "primereact/card";
   ];
 
 const Home = function() {
+
+  useCheckUser();
 
   return (
     <div className="px-5 py-4 w-full">
