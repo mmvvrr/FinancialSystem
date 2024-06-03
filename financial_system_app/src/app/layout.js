@@ -27,13 +27,11 @@ export default function RootLayout({ children }) {
     <html lang="en" style={{'font-size': '14px'}}>
       <body className='mx-0 my-0'>
       <Splitter className='flex h-screen'>
-        { accessToken ?
-          <SplitterPanel minSize={5} size={15}>
-            <ReactQueryProvider>
-              <SideMenuContainer/>
-            </ReactQueryProvider>
-          </SplitterPanel> : ""
-        }
+        <SplitterPanel minSize={5} size={15}>
+          <ReactQueryProvider>
+            <SideMenuContainer/>
+          </ReactQueryProvider>
+        </SplitterPanel>
         <SplitterPanel minSize={85} size={100}>
           <div className='w-full'>
             <ScrollPanel style={{height: '99vh'}}>
