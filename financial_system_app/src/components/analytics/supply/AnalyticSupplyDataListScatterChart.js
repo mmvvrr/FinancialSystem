@@ -28,7 +28,7 @@ const AnalyticSupplyDataListScatterChart = function () {
   };
 
   return(
-    <Card title='Паспределение доставок по складам'>
+    <Card title='Сумма доставок'>
       <Chart
         chartType="Scatter"
         data={dataGraph}
