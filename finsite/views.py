@@ -11,3 +11,7 @@ def seed(request):
     seed_db()
 
     return JsonResponse({'status': 'success'})
+
+
+def login_me(request):
+    return JsonResponse({'status': 'success'})
