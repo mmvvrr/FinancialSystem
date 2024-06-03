@@ -22,8 +22,6 @@ const  AnalyticProductPriceByCategoryCard = function () {
     <span>Загрузка...</span>
   )
 
-  console.log(filteredData[0])
-
   const header =
     <div className='pt-3'>
       <div className='flex flex-row px-3 justify-content-between'>

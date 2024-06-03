@@ -1,5 +1,4 @@
 import { Inter } from "next/font/google";
-//import "./globals.css";
 import 'primereact/resources/themes/viva-light/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
@@ -10,6 +9,7 @@ import {SideMenuContainer} from "@/components/layout/SideMenu"
 import {ScrollPanel} from "primereact/scrollpanel";
 import {Suspense} from "react";
 import Loading from "@/app/loading";
+import {cookies} from "next/headers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,6 +19,9 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+
+  const cookieStore = cookies();
+  const accessToken = cookieStore.get("accessToken");
 
   return (
     <html lang="en" style={{'font-size': '14px'}}>

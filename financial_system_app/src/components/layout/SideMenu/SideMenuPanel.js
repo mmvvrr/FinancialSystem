@@ -1,15 +1,18 @@
 "use client"
 
-import {useRouter} from "next/navigation";
+import {redirect, useRouter} from "next/navigation";
 import {PanelMenu} from "primereact/panelmenu";
 import {fetchCategoryListQuery} from "@/hooks/api/analytics/category/fetchCategory";
 import {useState, useEffect} from "react";
+import {AuthActions} from "@/utils/auth/utils";
 
 const SideMenuPanel = function () {
 
   const router = useRouter();
   const {data, isPending, isSuccess} = fetchCategoryListQuery();
   const [items, setItems] = useState([]);
+  const {logout, removeTokens} = AuthActions();
+
   useEffect(() => {
     const categories = data?.results?.filter(category => category.parent_id === null).map(category => {
       return {
@@ -59,7 +62,16 @@ const SideMenuPanel = function () {
         label: 'Выход',
         icon: 'pi pi-times-circle',
         command: () => {
-          router.push('/login');
+          removeTokens();
+          redirect("/login");
+          // logout()
+          //   .res(() => {
+          //     removeTokens();
+          //     router.push("/login");
+          //   })
+          //   .catch((err) => {
+          //     console.log("root", {type: "manual", message: err.json.detail});
+          //   });
         }
       }
     ])

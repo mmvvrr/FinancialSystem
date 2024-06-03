@@ -1,9 +1,10 @@
 "use client"
 
 import {Button} from "primereact/button";
-import {useRouter} from "next/navigation";
+import {redirect, useRouter} from "next/navigation";
 import {InputText} from "primereact/inputtext";
 import {useState} from "react";
+import {AuthActions} from "@/utils/auth/utils";
 
 const Home = function () {
 
@@ -11,10 +12,18 @@ const Home = function () {
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const { login, storeToken } = AuthActions();
   const clickLogin = async () => {
-    const response = await fetch(`http://127.0.0.1:8000/api-auth/login/`)
-    console.log(response);
-    // router.push("/");
+    login(username, password)
+      .json((json) => {
+        storeToken(json.access, "access");
+        storeToken(json.refresh, "refresh");
+
+        redirect("/");
+      })
+      .catch((err) => {
+        console.log("root", { type: "manual", message: err.json.detail });
+      });
   };
 
   return (

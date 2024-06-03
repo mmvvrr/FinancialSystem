@@ -17,10 +17,6 @@ import {
   AnalyticSupplyCountCard
 } from "@/components/analytics/supply"
 
-import {Card} from "primereact/card";
-import {redirect} from "next/navigation";
-import useCheckUser from "@/hooks/auth/useCheckUser";
-
 
   const years = [
       { name: '2023', code: '2023' },
@@ -28,8 +24,6 @@ import useCheckUser from "@/hooks/auth/useCheckUser";
   ];
 
 const Home = function() {
-
-  useCheckUser();
 
   return (
     <div className="px-5 py-4 w-full">
