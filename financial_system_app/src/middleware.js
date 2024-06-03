@@ -6,7 +6,9 @@ export function middleware(request) {
   const accessToken = cookieStore.get("accessToken");
 
   if (!accessToken && request.nextUrl.pathname !== "/login") {
-    return NextResponse.redirect(new URL("/login", request.url));
+    const response = NextResponse.redirect(new URL("/login", request.url));
+    response.headers.set('x-middleware-cache', 'no-cache')
+    return response
   }
 }
 

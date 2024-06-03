@@ -63,7 +63,7 @@ const SideMenuPanel = function () {
         icon: 'pi pi-times-circle',
         command: () => {
           removeTokens();
-          redirect("/login");
+          router.push("/login");
           // logout()
           //   .res(() => {
           //     removeTokens();

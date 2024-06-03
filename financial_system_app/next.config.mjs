@@ -5,6 +5,19 @@ const nextConfig = {
     // your project has ESLint errors.
     ignoreDuringBuilds: true,
   },
+
+   headers: () => [
+    {
+      source: '/:path*',
+      headers: [
+        {
+          key: 'Cache-Control',
+          value: 'no-store',
+        },
+      ],
+    },
+  ],
+
 };
 
 export default nextConfig;
