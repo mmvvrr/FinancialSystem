@@ -3,10 +3,13 @@
 import {Button} from "primereact/button";
 import {redirect, useRouter} from "next/navigation";
 import {InputText} from "primereact/inputtext";
-import {useState} from "react";
+import {useRef, useState} from "react";
 import {AuthActions} from "@/utils/auth/utils";
+import { Toast } from 'primereact/toast';
 
 const Home = function () {
+
+  const toast = useRef(null);
 
   const router = useRouter();
 
@@ -18,10 +21,12 @@ const Home = function () {
       .json((json) => {
         storeToken(json.access, "access");
         storeToken(json.refresh, "refresh");
-
         router.push("/analytics");
       })
       .catch((err) => {
+        toast.current.show({ severity: 'error', summary: 'Ошибка', detail: 'Неверный логин или пароль', life: 3000 });
+        setUsername("");
+        setPassword("");
         console.log("root", { type: "manual", message: err.json.detail });
       });
   };
@@ -48,6 +53,7 @@ const Home = function () {
           </div>
         </div>
       </div>
+      <Toast ref={toast} />
     </div>
   )
 }
