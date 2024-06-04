@@ -31,14 +31,14 @@ const Home = function () {
       <div className="flex flex-column md:flex-row">
         <div className="w-full md:w-6 flex flex-column align-items-center justify-content-center gap-3 py-5">
           <div className="flex flex-wrap justify-content-center align-items-center gap-2">
-            <label className="w-6rem">Логин</label>
+            <label className="justify-content-center">Логин</label>
             <InputText value={username} onChange={(e) => setUsername(e.target.value)} id="username" type="text" className="w-12rem"/>
           </div>
           <div className="flex flex-wrap justify-content-center align-items-center gap-2">
-            <label className="w-6rem">Пароль</label>
+            <label className="justify-content-center">Пароль</label>
             <InputText value={password} onChange={(e) => setPassword(e.target.value)} id="password" type="password" className="w-12rem"/>
           </div>
-          <Button label="Войти" icon="pi pi-user" className="w-10rem mx-auto" onClick={clickLogin}></Button>
+          <Button label="Войти" icon="pi pi-user" className="ustify-content-center" onClick={clickLogin}></Button>
         </div>
       </div>
     </div>
