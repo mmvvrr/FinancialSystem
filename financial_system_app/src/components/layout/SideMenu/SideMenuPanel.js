@@ -64,17 +64,15 @@ const SideMenuPanel = function () {
         label: 'Выход',
         icon: 'pi pi-times-circle',
         command: () => {
-          removeTokens();
-          router.push("/login");
-          queryClient.removeQueries({queryKey: ['users-me']})
-          // logout()
-          //   .res(() => {
-          //     removeTokens();
-          //     router.push("/login");
-          //   })
-          //   .catch((err) => {
-          //     console.log("root", {type: "manual", message: err.json.detail});
-          //   });
+          logout()
+            .res(() => {
+              removeTokens();
+              router.push("/login");
+              queryClient.removeQueries({queryKey: ['users-me']})
+            })
+            .catch((err) => {
+              console.log("root", {type: "manual", message: err.json.detail});
+            });
         }
       }
     ])
