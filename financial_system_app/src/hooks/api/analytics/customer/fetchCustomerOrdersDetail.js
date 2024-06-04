@@ -1,13 +1,8 @@
-import axios from "axios";
 import {useQuery} from "@tanstack/react-query";
-import {BASE_URL} from '@/hooks/api'
+import {fetcher} from "@/utils/fetcher";
 
 const fetchCustomerOrdersDetail= async function (customer) {
-  const res = await axios.get(
-    `${BASE_URL}/customers/${customer}/analytics/customer_orders_detail/`,
-  )
-
-  return res.data.result;
+  return fetcher(`/customers/${customer}/analytics/customer_orders_detail/`,)
 }
 
 

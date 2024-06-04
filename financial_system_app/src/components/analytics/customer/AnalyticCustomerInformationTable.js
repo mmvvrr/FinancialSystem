@@ -38,7 +38,7 @@ const AnalyticCustomerInformationTable = function ({openCustomerDetail}) {
   )
 
   return (
-    <DataTable value={data} paginator rows={5} rowsPerPageOptions={[5, 10, 25, 50]} tableStyle={{ minWidth: '50rem' }}>
+    <DataTable value={data.result} paginator rows={5} rowsPerPageOptions={[5, 10, 25, 50]} tableStyle={{ minWidth: '50rem' }}>
       <Column field="surname" header="ФИО" body={fullName}></Column>
       <Column field="gender" header="Пол" body={gender}></Column>
       <Column field="date_birth" header="Дата рождения"></Column>

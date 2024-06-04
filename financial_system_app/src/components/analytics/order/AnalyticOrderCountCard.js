@@ -45,8 +45,8 @@ const AnalyticOrderCountCard = function (props) {
   return (
     <Card header={header}>
       <div>
-        <div className='text-4xl font-bold text-blue-600'>{isPending ? 'Загрузка': data?.total_order.toLocaleString('ru-RU')}</div>
-        <div className='text-1xl'>За прошлый месяц {isPending ? 'Загрузка': useGetPastMonthOrderCount(data.monthly_orders_list)}</div>
+        <div className='text-4xl font-bold text-blue-600'>{isPending ? 'Загрузка': data?.order_count.total_order.toLocaleString('ru-RU')}</div>
+        <div className='text-1xl'>За прошлый месяц {isPending ? 'Загрузка': useGetPastMonthOrderCount(data.order_count.monthly_orders_list)}</div>
       </div>
     </Card>
   )

@@ -23,7 +23,7 @@ class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
 
-    # permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.DjangoModelPermissions, permissions.IsAuthenticated]
 
     @action(detail=True, methods=['get'], url_path='analytics/category_order_count')
     def category_order_count(self, request, *args, **kwargs):

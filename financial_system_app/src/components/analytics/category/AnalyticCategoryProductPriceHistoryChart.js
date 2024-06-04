@@ -25,7 +25,7 @@ const AnalyticCategoryProductPriceHistoryChart = function (props) {
     )
   }
 
-  let dataGraph = data.price.map(price => {
+  let dataGraph = data.product_price_history.price.map(price => {
     return [price.created_at, price.price]
   })
 

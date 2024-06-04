@@ -14,7 +14,7 @@ const AnalyticChartProductPriceByCategory = function(props) {
     return <span>Error</span>
   }
 
-  let graphData = data.map(product => [product.name, product.price.value])
+  let graphData = data.products.map(product => [product.name, product.price.value])
 
   graphData.unshift(["Название", "Цена"])
 

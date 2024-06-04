@@ -1,11 +1,9 @@
-import axios from "axios";
 import {useQuery} from "@tanstack/react-query";
-import {BASE_URL} from "@/hooks/api";
+import {fetcher} from "@/utils/fetcher";
 
 const fetchCategoryList = async function () {
   try {
-    const res = await axios.get(`${BASE_URL}/categories/?page_size=1000`)
-    return res.data;
+    return await fetcher(`/categories/?page_size=1000`)
   } catch (err) {
     return err
   }
@@ -24,7 +22,7 @@ const fetchCategoryListQuery = function () {
 
 const fetchCategoryDetail = async function (id) {
   try {
-    const res = await axios.get(`http://127.0.0.1:8000/api/categories/${id}`)
+    const res = await apiAnalytic.get(`/categories/${id}`)
     return res.data;
   } catch(err) {
     return err

@@ -13,7 +13,7 @@ const AnalyticSupplyDataListScatterChart = function () {
     )
   }
 
-  const dataGraph = data.map(supply => [formattedDate(supply.delivery_date), supply.total_cost])
+  const dataGraph = data.result.map(supply => [formattedDate(supply.delivery_date), supply.total_cost])
 
   dataGraph.unshift(["Дата", "Стоимость"])
 

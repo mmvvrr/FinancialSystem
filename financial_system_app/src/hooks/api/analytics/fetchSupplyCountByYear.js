@@ -1,18 +1,16 @@
-import axios from "axios";
 import {useQuery} from "@tanstack/react-query";
 import {BASE_URL} from '@/hooks/api'
+import {fetcher} from "@/utils/fetcher";
 
 const fetchSupplyCountByYear = async function (year) {
-  const res = await axios.get(
-    `${BASE_URL}/supplies/analytics/supply_count_by_year/`,
+  return fetcher(
+    `/supplies/analytics/supply_count_by_year/`,
     {
       params: {
         year: year,
       }
     }
   )
-
-  return res.data.supply_count;
 }
 
 

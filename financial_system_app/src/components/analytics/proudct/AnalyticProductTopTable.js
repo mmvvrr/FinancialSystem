@@ -26,7 +26,7 @@ const AnalyticProductTopTable = function () {
   return (
     <Card title="Топ 5 проданной продукции за весь период">
       <Divider/>
-      <DataTable value={data} >
+      <DataTable value={data.products_top} >
         <Column field="product__name" header="Название продукта"></Column>
         <Column field='total_quantity' header="Количество проданных экземпляров" body={formateNumberTotalQuantityToLocaleRu}></Column>
         <Column field='total_sum' header="Общая сумма проданных товаров" body={formateNumberTotalSumToLocaleRu}></Column>

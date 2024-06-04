@@ -1,9 +1,11 @@
 import axios from "axios";
 import {useQuery} from "@tanstack/react-query";
 import {BASE_URL} from "@/hooks/api";
+import apiAnalytic from "@/utils/apiAnalytic";
+import {fetcher} from "@/utils/fetcher";
 
 const fetchProductTop = async function (args) {
-  const res = await axios.get(
+  return fetcher(
     `${BASE_URL}/products/analytics/products_top/`,
     {
       params: {
@@ -12,8 +14,6 @@ const fetchProductTop = async function (args) {
       }
     }
   )
-
-  return res.data.products_top;
 }
 
 

@@ -1,12 +1,10 @@
 import axios from "axios";
 import {useQuery} from "@tanstack/react-query";
+import apiAnalytic from "@/utils/apiAnalytic";
+import {fetcher} from "@/utils/fetcher";
 
 const fetchEmployeeAllSales = async function (category, is_sum) {
-  const res = await axios.get(
-    `http://127.0.0.1:8000/api/employees/analytics/employee_all_sales/`,
-  )
-
-  return res.data;
+  return fetcher(`/employees/analytics/employee_all_sales/`,)
 }
 
 

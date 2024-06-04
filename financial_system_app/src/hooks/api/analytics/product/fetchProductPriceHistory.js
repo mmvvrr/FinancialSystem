@@ -1,11 +1,9 @@
-import axios from "axios";
 import {useQuery} from "@tanstack/react-query";
-import {BASE_URL} from "@/hooks/api";
+import {fetcher} from "@/utils/fetcher";
 
 const fetchProductPriceHistory = async function (product_id, args) {
-
-  const res = await axios.get(
-    `${BASE_URL}/products/${product_id}/analytics/product_prices_history/`,
+  return fetcher(
+    `/products/${product_id}/analytics/product_prices_history/`,
     {
       params: {
         to_date: args?.toDate || [],
@@ -13,8 +11,6 @@ const fetchProductPriceHistory = async function (product_id, args) {
       }
     }
   )
-
-  return res.data.product_price_history;
 }
 
 

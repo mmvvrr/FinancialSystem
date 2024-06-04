@@ -16,7 +16,7 @@ const AnalyticSupplyDetailTable = function ({supplyId}) {
   )
 
   return (
-    <DataTable value={data} stripedRows tableStyle={{minWidth: '50rem'}}>
+    <DataTable value={data.result} stripedRows tableStyle={{minWidth: '50rem'}}>
       <Column field="product_pk" header="Код продукта"></Column>
       <Column field="product_name" header="Название продукта"></Column>
       <Column field="provider_name" header="Поставщик"></Column>

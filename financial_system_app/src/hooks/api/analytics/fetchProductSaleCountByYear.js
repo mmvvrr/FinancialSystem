@@ -1,18 +1,15 @@
-import axios from "axios";
 import {useQuery} from "@tanstack/react-query";
-import {BASE_URL} from '@/hooks/api'
+import {fetcher} from "@/utils/fetcher";
 
 const fetchProductSaleCountByYear = async function (year) {
-  const res = await axios.get(
-    `${BASE_URL}/products/analytics/products_by_year/`,
+  return fetcher(
+    `/products/analytics/products_by_year/`,
     {
       params: {
         year: year,
       }
     }
   )
-
-  return res.data.products_by_year;
 }
 
 

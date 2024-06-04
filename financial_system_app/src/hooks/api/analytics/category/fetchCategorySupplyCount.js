@@ -1,13 +1,9 @@
-import axios from "axios";
 import {useQuery} from "@tanstack/react-query";
-import {BASE_URL} from "@/hooks/api";
+import {fetcher} from "@/utils/fetcher";
 
 
 const fetchCategorySupplyCount = async function (category) {
-  const res = await axios.get(
-    `${BASE_URL}/categories/${category}/analytics/category_supply_count/`
-  );
-  return res.data
+  return fetcher(`/categories/${category}/analytics/category_supply_count/`);
 }
 
 const fetchCategorySupplyCountQuery = function (category) {

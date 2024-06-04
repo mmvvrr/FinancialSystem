@@ -25,12 +25,12 @@ const AnalyticProductsSaleCountCard = function () {
       <div>
         <div
           className='text-4xl font-bold text-blue-600'>
-          {isPending ? 'Загрузка' : data?.total_customer.toLocaleString('ru-RU')}
+          {isPending ? 'Загрузка' : data?.customers_count?.total_customer.toLocaleString('ru-RU')}
         </div>
         <div className='text-1xl flex'>
-          <span>{isPending ? 'Загрузка' : `Муж: ${data?.total_man_customer.toLocaleString('ru-RU')}`}</span>
+          <span>{isPending ? 'Загрузка' : `Муж: ${data?.customers_count?.total_man_customer.toLocaleString('ru-RU')}`}</span>
           <span className='mx-2'></span>
-          <span>{isPending ? 'Загрузка' : `Жен: ${data?.total_woman_customer.toLocaleString('ru-RU')}`}</span>
+          <span>{isPending ? 'Загрузка' : `Жен: ${data?.customers_count?.total_woman_customer.toLocaleString('ru-RU')}`}</span>
         </div>
       </div>
     </Card>

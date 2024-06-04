@@ -57,7 +57,7 @@ const AnalyticCustomerOrdersDetailTable = function ({customerId}) {
 
   return(
     <DataTable
-      value={data.orders}
+      value={data.result.orders}
       expandedRows={expandedRows}
       onRowToggle={(e) => setExpandedRows(e.data)}
       rowExpansionTemplate={rowExpansionTemplate}

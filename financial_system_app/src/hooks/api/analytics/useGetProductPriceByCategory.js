@@ -1,18 +1,16 @@
-import axios from "axios";
 import {useQuery} from "@tanstack/react-query";
-import {BASE_URL} from '@/hooks/api'
+import {fetcher} from "@/utils/fetcher";
 
 
 const fetchGetProductPriceByCategory = async function (category_id) {
-  const response =  await axios.get(
-    `${BASE_URL}/products/analytics/product_prices_by_category/`,
+  return fetcher(
+    `/products/analytics/product_prices_by_category/`,
     {
       params: {
         category: category_id,
       }
     }
   )
-  return response.data.products;
 }
 
 const fetchGetProductPriceByCategoryQuery = function (category_id) {

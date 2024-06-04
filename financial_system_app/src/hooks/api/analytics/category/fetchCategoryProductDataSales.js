@@ -1,11 +1,10 @@
-import axios from "axios";
 import {useQuery} from "@tanstack/react-query";
-import {BASE_URL} from "@/hooks/api";
+import {fetcher} from "@/utils/fetcher";
 
 
 const fetchCategoryProductionSalesData = async function (product, args) {
-  const res = await axios.get(
-    `${BASE_URL}/products/${product}/analytics/product_data_sales`,
+  return fetcher (
+    `/products/${product}/analytics/product_data_sales`,
     {
       params: {
         to_date: args.toDate,
@@ -13,7 +12,6 @@ const fetchCategoryProductionSalesData = async function (product, args) {
       }
     }
   );
-  return res.data
 }
 
 const fetchCategoryProductionSalesDataQuery = function (product, args) {
