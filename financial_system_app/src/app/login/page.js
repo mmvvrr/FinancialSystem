@@ -19,7 +19,7 @@ const Home = function () {
         storeToken(json.access, "access");
         storeToken(json.refresh, "refresh");
 
-        router.push("/");
+        router.push("/analytics");
       })
       .catch((err) => {
         console.log("root", { type: "manual", message: err.json.detail });

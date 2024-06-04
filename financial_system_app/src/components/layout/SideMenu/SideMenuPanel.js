@@ -12,6 +12,7 @@ const SideMenuPanel = function () {
   const {data, isPending, isSuccess} = fetchCategoryListQuery();
   const [items, setItems] = useState([]);
   const {logout, removeTokens} = AuthActions();
+  const rootUrl = '/analytics';
 
   useEffect(() => {
     const categories = data?.results?.filter(category => category.parent_id === null).map(category => {
@@ -19,7 +20,7 @@ const SideMenuPanel = function () {
         label: category.name,
         icon: 'pi pi-shop',
         command: () => {
-          router.push(`/category/${category.pk}`);
+          router.push(rootUrl + `/category/${category.pk}`);
         }
       }
     }) || []
@@ -29,21 +30,21 @@ const SideMenuPanel = function () {
         icon: 'pi pi-home',
         className: 'text-3xl',
         command: () => {
-          router.push('/');
+          router.push('/analytics');
         }
       },
       {
         label: 'Работник',
         icon: 'pi pi-user',
         command: () => {
-          router.push('/employee');
+          router.push(`${rootUrl}/employee`);
         }
       },
       {
         label: 'Покупатели',
         icon: 'pi pi-users',
         command: () => {
-          router.push('/customer');
+          router.push( `${rootUrl}/customer`);
         }
       },
       {
@@ -55,7 +56,7 @@ const SideMenuPanel = function () {
         label: 'Поставки',
         icon: 'pi pi-truck',
         command: () => {
-          router.push('/suplyes');
+          router.push(`${rootUrl}/suplyes`);
         }
       },
       {

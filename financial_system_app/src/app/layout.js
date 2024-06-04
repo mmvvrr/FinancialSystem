@@ -3,13 +3,6 @@ import 'primereact/resources/themes/viva-light/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import 'primeflex/primeflex.css';
-import ReactQueryProvider from "@/components/ReactQueryProvider";
-import {Splitter, SplitterPanel} from "primereact/splitter";
-import {SideMenuContainer} from "@/components/layout/SideMenu"
-import {ScrollPanel} from "primereact/scrollpanel";
-import {Suspense} from "react";
-import Loading from "@/app/loading";
-import {cookies} from "next/headers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,30 +13,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
 
-  const cookieStore = cookies();
-  const accessToken = cookieStore.get("accessToken");
-
   return (
     <html lang="en" style={{'font-size': '14px'}}>
-      <body className='mx-0 my-0'>
-      <Splitter className='flex h-screen'>
-        <SplitterPanel minSize={5} size={15}>
-          <ReactQueryProvider>
-            <SideMenuContainer/>
-          </ReactQueryProvider>
-        </SplitterPanel>
-        <SplitterPanel minSize={85} size={100}>
-          <div className='w-full'>
-            <ScrollPanel style={{height: '99vh'}}>
-              <Suspense fallback={<Loading/>}>
-                <ReactQueryProvider>
-                  {children}
-                </ReactQueryProvider>
-              </Suspense>
-            </ScrollPanel>
-          </div>
-        </SplitterPanel>
-      </Splitter>
+      <body className={`${inter.className} mx-0 my-0`}>
+        {children}
       </body>
     </html>
   );

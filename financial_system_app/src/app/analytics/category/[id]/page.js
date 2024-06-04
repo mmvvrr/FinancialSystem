@@ -1,6 +1,6 @@
 "use client"
 
-import {fetchCategoryDetailQuery} from "@//hooks/api/analytics/category/fetchCategory"
+import {fetchCategoryDetailQuery} from "@/hooks/api/analytics/category/fetchCategory"
 import {
   AnalyticCategoryProductTable,
   AnalyticCategoryCountOrderCard,
@@ -9,7 +9,7 @@ import {
   AnalyticCategoryCustomerCountCard,
   AnalyticCategoryProductPriceHistoryCard,
   AnalyticCategoryProductDataSalesCard,
-} from "@/components/analytics/category/"
+} from "@/components/analytics/category"
 
 
 export default function Page({ params }) {

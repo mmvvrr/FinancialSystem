@@ -6,17 +6,16 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
 
-   headers: () => [
-    {
-      source: '/:path*',
-      headers: [
-        {
-          key: 'Cache-Control',
-          value: 'no-store',
-        },
-      ],
-    },
-  ],
+  async redirects() {
+    return [
+      // Basic redirect
+      {
+        source: '/',
+        destination: '/analytics',
+        permanent: true,
+      },
+    ]
+  },
 
 };
 
