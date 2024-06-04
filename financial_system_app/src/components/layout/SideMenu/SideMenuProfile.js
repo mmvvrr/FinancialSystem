@@ -1,6 +1,27 @@
+"use client"
 import {Avatar} from "primereact/avatar";
+import {fetcher} from "@/utils/fetcher";
+import {useQuery} from "@tanstack/react-query";
+
+export function getUser() {
+  return fetcher(`/auth/users/me/`)
+}
 
 const SideMenuProfile = function () {
+
+  const {data, isError, isPending, error} = useQuery({
+    queryKey: ['users-me'],
+    queryFn: async () => await getUser(),
+    options: {
+      keepPreviousData: true,
+    }
+  })
+
+  if (isPending) return (
+    <span>
+      Загрузка профиля...
+    </span>
+  )
 
   return (
     <button
@@ -8,8 +29,8 @@ const SideMenuProfile = function () {
       <Avatar image="https://primefaces.org/cdn/primereact/images/avatar/amyelsner.png" className="mr-2"
               shape="circle" size="xlarge"/>
       <div className="flex flex-column align">
-        <span className="font-bold">Елена Никитина</span>
-        <span className="text-sm">Аналитик</span>
+        <span className="font-bold">{data?.username || "Нет логина"}</span>
+        <span className="text-sm">{data?.email || "Нет почты"}</span>
       </div>
     </button>
   );
