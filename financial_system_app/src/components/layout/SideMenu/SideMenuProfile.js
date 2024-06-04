@@ -3,14 +3,25 @@ import {Avatar} from "primereact/avatar";
 import {fetcher} from "@/utils/fetcher";
 import {useQuery} from "@tanstack/react-query";
 import {AuthActions} from "@/utils/auth/utils";
+import axios from "axios";
+import {BASE_URL} from "@/hooks/api";
 
-export function getUser() {
-  return fetcher(`/auth/users/me/`)
-}
 
 const SideMenuProfile = function () {
 
   const {getToken} = AuthActions();
+
+  const api = axios.create({
+    baseURL: BASE_URL,
+    headers: {
+      Authorization: `Bearer ${getToken("access")}`,
+    },
+  });
+
+  async function getUser() {
+    const res = await api.get(`${BASE_URL}/auth/users/me/`)
+    return res.data
+  }
 
   const {data, isError, isPending, error} = useQuery({
     queryKey: ['users-me'],
