@@ -5,9 +5,10 @@ import {PanelMenu} from "primereact/panelmenu";
 import {fetchCategoryListQuery} from "@/hooks/api/analytics/category/fetchCategory";
 import {useState, useEffect} from "react";
 import {AuthActions} from "@/utils/auth/utils";
+import {useQueryClient} from "@tanstack/react-query";
 
 const SideMenuPanel = function () {
-
+  const queryClient = useQueryClient()
   const router = useRouter();
   const {data, isPending, isSuccess} = fetchCategoryListQuery();
   const [items, setItems] = useState([]);
@@ -65,6 +66,7 @@ const SideMenuPanel = function () {
         command: () => {
           removeTokens();
           router.push("/login");
+          queryClient.removeQueries({queryKey: ['users-me']})
           // logout()
           //   .res(() => {
           //     removeTokens();

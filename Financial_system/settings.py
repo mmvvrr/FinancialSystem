@@ -70,7 +70,10 @@ DJOSER = {
     "PASSWORD_RESET_CONFIRM_URL": "auth/password/reset-password-confirmation/?uid={uid}&token={token}",
     "ACTIVATION_URL": "#/activate/{uid}/{token}",
     "SEND_ACTIVATION_EMAIL": False,
-    "SERIALIZERS": {},
+    "SERIALIZERS": {
+        'user': 'finsite.serializer.user.UserSerializer',
+        'current_user': 'finsite.serializer.user.UserSerializer',
+    },
 }
 
 SITE_NAME = "Finsite Django Next.js"
