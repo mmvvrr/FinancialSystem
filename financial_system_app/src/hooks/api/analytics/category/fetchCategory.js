@@ -22,8 +22,7 @@ const fetchCategoryListQuery = function () {
 
 const fetchCategoryDetail = async function (id) {
   try {
-    const res = await apiAnalytic.get(`/categories/${id}`)
-    return res.data;
+    return await fetcher(`/categories/${id}`)
   } catch(err) {
     return err
   }
