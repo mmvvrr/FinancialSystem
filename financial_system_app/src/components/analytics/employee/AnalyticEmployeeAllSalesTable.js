@@ -19,7 +19,7 @@ const AnalyticEmployeeAllSalesTable = ({ category,  is_sum }) => {
     return <span>Error</span>
   }
   const formatingTotalQuantity = function (employee) {
-    return employee.sales[0].toLocaleString('ru-RU')+" руб."
+    return employee.sales[0]?.toLocaleString('ru-RU') || 0 +" руб."
   }
     const formatingFullName = function (employee) {
     return employee.surname+" "+employee.name+" "+employee.patronymic
